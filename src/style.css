@@ -1,0 +1,82 @@
+
+header {
+  z-index: 100;
+}
+aside{
+  z-index: 150;
+}
+
+#menu-bar {
+  z-index: 256;
+}
+.anim{
+    transition: min-height 0.2s ease-out;
+    
+}
+
+.anim2{
+    transition: max-height 0.2s ease-out;
+}
+
+
+@media screen and (min-width: 1015px) {
+ .hh{
+ max-width: 100%;
+ }
+}
+
+@media screen and (min-width: 1106px) {
+ .board{
+
+justify-content: space-between;
+ }
+
+ .board .left-container{
+ width: 100%;
+ }
+
+ .board .left-container .assignment-container{
+  width: 100%;
+  
+ }
+}
+
+
+
+
+
+@media screen and (min-width: 430px){
+.img-container{
+display: flex;
+}
+}
+
+@media screen and (min-width: 340px){
+  .header-profile-img-container{
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1482px){
+.board .left-container .assignment-container{
+flex: 0;
+
+}
+
+.board .left-container .active-assignment{
+flex: 0;
+}
+
+.board .left-container .recently-graded{
+flex: 0;
+}
+
+.board .left-container .buy-credit{
+flex: 0;
+}
+
+
+
+}
+
+

@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+  
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+:root{
+    --primaryColor: #287C74; 
+    
+}
+
+.anim{
+    transition: min-height 0.2s ease-out;
+    
+}
+
+.anim2{
+    transition: max-height 0.2s ease-out;
+}
+
+

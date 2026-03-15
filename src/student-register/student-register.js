@@ -1,7 +1,5 @@
 console.log("hello world")
-import $ from "jquery";
-window.$ = $;
-window.jQuery = $;
+
 import { firebaseConfig } from "../config.js";
 
 import { initializeApp } from "firebase/app";
@@ -33,31 +31,31 @@ const db = getFirestore(app);
 
 const profilePicInput = document.getElementById("profile-pic")
 const idCardPicInput = document.getElementById("id-card")
-const imgPreview  = document.getElementById("imagePreview")
+const imgPreview = document.getElementById("imagePreview")
 const idCardPreview = document.getElementById("id-card-img")
 
-profilePicInput.addEventListener('change', function(event) {
-    const file = event.target.files[0]; 
-    if (file) {
-        // Create a temporary URL for the file and set it as the image source
-        imgPreview.src = URL.createObjectURL(file);
-        imgPreview.classList.remove("hidden")
+profilePicInput.addEventListener('change', function (event) {
+  const file = event.target.files[0];
+  if (file) {
+    // Create a temporary URL for the file and set it as the image source
+    imgPreview.src = URL.createObjectURL(file);
+    imgPreview.classList.remove("hidden")
 
-        imgPreview.onload = function() {
-            URL.revokeObjectURL(imgPreview.src);
-        }
+    imgPreview.onload = function () {
+      URL.revokeObjectURL(imgPreview.src);
     }
+  }
 });
 
-idCardPicInput.addEventListener("change", (event)=>{
-const file = event.target.files[0];
-if(file){
-  idCardPreview.src = URL.createObjectURL(file);
-  idCardPreview.classList.remove("hidden")
-  idCardPreview.onload = function(){
-    URL.revokeObjectURL(idCardPreview.src)
+idCardPicInput.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    idCardPreview.src = URL.createObjectURL(file);
+    idCardPreview.classList.remove("hidden")
+    idCardPreview.onload = function () {
+      URL.revokeObjectURL(idCardPreview.src)
+    }
   }
-}
 })
 
 let formData = {
@@ -84,21 +82,21 @@ let formData = {
   password: "",
   "confirm-password": "",
 };
-function scrollY(){
+function scrollY() {
   window.scroll({
     top: -1,
-     behavior: "smooth",
+    behavior: "smooth",
   });
 }
 
-  // const country = document.getElementById("country")
-  // country.addEventListener("input", (e)=>{
-  // formData.country = $("#country").countrySelect("getSelectedCountryData").name;
-  // alert(formData.country)
-  // })
+// const country = document.getElementById("country")
+// country.addEventListener("input", (e)=>{
+// formData.country = $("#country").countrySelect("getSelectedCountryData").name;
+// alert(formData.country)
+// })
 
-  // formData.country = $("#country").countrySelect("getSelectedCountryData").name;
-  // alert(formData)
+// formData.country = $("#country").countrySelect("getSelectedCountryData").name;
+// alert(formData)
 
 const stepFields = {
   1: ["name", "dob", "keystage", "gender", "country", "phoneNo", "accessibility", "learning"],
@@ -109,17 +107,17 @@ const stepFields = {
 
 
 
-consent1.addEventListener("click", ()=>{
+consent1.addEventListener("click", () => {
   formData.consent1 = consent1.checked;
   validateField("consent1")
 })
 
-consent2.addEventListener("click", ()=>{
+consent2.addEventListener("click", () => {
   formData.consent2 = consent2.checked;
   validateField("consent2")
 
 })
-consent3.addEventListener("click", ()=>{
+consent3.addEventListener("click", () => {
   formData.consent3 = consent3.checked;
   validateField("consent3")
 
@@ -161,21 +159,21 @@ const validationRules = {
   dob: {
     validate(v) {
       let currentYear = new Date().getFullYear()
-        const birth = new Date(v);
-        let userBirthYear = birth.getFullYear();
-        let age = Number(currentYear) - Number(userBirthYear)
-         if(Number(userBirthYear)>Number(currentYear)){
+      const birth = new Date(v);
+      let userBirthYear = birth.getFullYear();
+      let age = Number(currentYear) - Number(userBirthYear)
+      if (Number(userBirthYear) > Number(currentYear)) {
         return "Invalid Date of Birth"
       }
-        if(age<6){
-          return "Age must be greater than 6 years"
-        }
+      if (age < 6) {
+        return "Age must be greater than 6 years"
+      }
 
-        
+
 
       if (!v) return "Date of birth is required.";
       return null;
-      
+
     },
   },
   keystage: {
@@ -197,37 +195,37 @@ const validationRules = {
       return null;
     },
   },
-  accessibility:{
-    validate(v){
-      
-        let atLeastOneSelected = false;
-        accessibilityBtns.forEach((cur)=>{
-          if(cur.selected){
-            atLeastOneSelected = true;
-          }
-        })
-        if(atLeastOneSelected){
-          return null;
+  accessibility: {
+    validate(v) {
+
+      let atLeastOneSelected = false;
+      accessibilityBtns.forEach((cur) => {
+        if (cur.selected) {
+          atLeastOneSelected = true;
         }
-        else{
-          return "Please select atleast one";
-        }
+      })
+      if (atLeastOneSelected) {
+        return null;
+      }
+      else {
+        return "Please select atleast one";
+      }
     }
   },
   learning: {
-    validate(v){
+    validate(v) {
       let atLeastOneSelected = false;
-      learningPreferenceBtns.forEach((cur)=>{
-          if(cur.selected){
-            atLeastOneSelected = true;
-          }
-        })
-        if(atLeastOneSelected){
-          return null;
+      learningPreferenceBtns.forEach((cur) => {
+        if (cur.selected) {
+          atLeastOneSelected = true;
         }
-        else{
-          return "Please select atleast one";
-        }
+      })
+      if (atLeastOneSelected) {
+        return null;
+      }
+      else {
+        return "Please select atleast one";
+      }
     }
   },
 
@@ -270,21 +268,21 @@ const validationRules = {
       return null;
     },
   },
-  consent1:{
-    validate(v){
+  consent1: {
+    validate(v) {
       // const v = getConset1Value()
-     return formData.consent1? null: "Please check the box";
+      return formData.consent1 ? null : "Please check the box";
     }
   },
 
-   consent2:{
-    validate(v){
-     return formData.consent2? null: "Please check the box";
+  consent2: {
+    validate(v) {
+      return formData.consent2 ? null : "Please check the box";
     }
   },
-  consent3:{
-    validate(v){
-     return formData.consent3? null: "Please check the box";
+  consent3: {
+    validate(v) {
+      return formData.consent3 ? null : "Please check the box";
     }
   },
   email: {
@@ -361,9 +359,9 @@ function validateField(fieldName) {
 
 function validateStep(step) {
   const fields = stepFields[step];
- accountName.value = formData.name;
- formData.accountName = formData.name;
-  if (!fields) return true; 
+  accountName.value = formData.name;
+  formData.accountName = formData.name;
+  if (!fields) return true;
   let allValid = true;
   for (const field of fields) {
     const valid = validateField(field);
@@ -426,7 +424,7 @@ function runTimmer() {
 
     if (totalTime === 0) {
       clearInterval(id);
-      
+
     }
     totalTime -= 1;
   }, 1000);
@@ -484,20 +482,20 @@ function getNextStepBtn() {
 
 function loadNextForm() {
 
-     scrollY()
+  scrollY()
   const stepNum = currentStepIndex + 1;
 
   if (stepNum !== 2 && !validateStep(stepNum)) {
 
-    return; 
+    return;
   }
-  if(stepNum == 1){
+  if (stepNum == 1) {
     runTimmer()
-     
+
   }
-  if(stepNum == 4){
-      createStudent(formData.email, formData.password)
-      
+  if (stepNum == 4) {
+    createStudent(formData.email, formData.password)
+
   }
 
   if (currentStepIndex < formSteps.length - 1) {
@@ -507,11 +505,11 @@ function loadNextForm() {
     formSteps[currentStepIndex].classList.remove("hidden");
     formSteps[currentStepIndex].classList.add("flex");
 
-  
+
     formTitle.textContent = formTitles[currentStepIndex];
     updateBar(currentStepIndex);
 
-    
+
     if (currentStepIndex !== 1) nextLabel();
   }
 }
@@ -601,7 +599,7 @@ if (form2Btn) {
 
 inputsArr.forEach((input, ind) => {
   input.addEventListener("input", (event) => {
-  
+
     if (!/^[0-9]$/.test(event.target.value)) {
       input.value = "";
     } else if (input.value.length === 1 && ind < inputsArr.length - 1) {
@@ -610,38 +608,38 @@ inputsArr.forEach((input, ind) => {
   });
 
   input.addEventListener("keydown", (event) => {
-    if(event.key == "Enter"){
+    if (event.key == "Enter") {
       event.preventDefault();
-    const form2 = formSteps[1];
-    if (!form2) return;
+      const form2 = formSteps[1];
+      if (!form2) return;
 
-    const vals = [
-      "input1",
-      "input2",
-      "input3",
-      "input4",
-      "input5",
-      "input6",
-    ].map((name) => form2.querySelector(`[name="${name}"]`)?.value || "");
+      const vals = [
+        "input1",
+        "input2",
+        "input3",
+        "input4",
+        "input5",
+        "input6",
+      ].map((name) => form2.querySelector(`[name="${name}"]`)?.value || "");
 
-    if (validateOtp(vals)) {
-      if (currentStepIndex < formSteps.length - 1) {
-        formSteps[currentStepIndex].classList.add("hidden");
-        formSteps[currentStepIndex].classList.remove("flex");
-        currentStepIndex += 1;
-        formSteps[currentStepIndex].classList.remove("hidden");
-        formSteps[currentStepIndex].classList.add("flex");
-        formTitle.textContent = formTitles[currentStepIndex];
-        updateBar(currentStepIndex);
-        nextLabel();
+      if (validateOtp(vals)) {
+        if (currentStepIndex < formSteps.length - 1) {
+          formSteps[currentStepIndex].classList.add("hidden");
+          formSteps[currentStepIndex].classList.remove("flex");
+          currentStepIndex += 1;
+          formSteps[currentStepIndex].classList.remove("hidden");
+          formSteps[currentStepIndex].classList.add("flex");
+          formTitle.textContent = formTitles[currentStepIndex];
+          updateBar(currentStepIndex);
+          nextLabel();
+        }
+      } else {
+        makeInvalidInputs();
+        inputsArr.forEach((inp) => {
+          inp.value = "";
+        });
+        if (inputsArr[0]) inputsArr[0].focus();
       }
-    } else {
-      makeInvalidInputs();
-      inputsArr.forEach((inp) => {
-        inp.value = "";
-      });
-      if (inputsArr[0]) inputsArr[0].focus();
-    }
     }
     if (event.key === "Backspace") {
       input.value = "";
@@ -651,7 +649,7 @@ inputsArr.forEach((input, ind) => {
     } else if (event.key === "ArrowLeft" && ind > 0) {
       inputsArr[ind - 1].focus();
     }
-   
+
   });
 });
 
@@ -689,68 +687,76 @@ learningBoxes.forEach((box, ind) => {
       learningPreferenceBtns[ind].selected = true;
       formData.learningPreferences.push(learningPreferenceBtns[ind].title);
       console.log(formData.learningPreferences)
-       validateField("learning")
+      validateField("learning")
     }
   });
 });
 
-async function storeStudentDataInFirestore(){
+async function storeStudentDataInFirestore() {
   try {
-  const docRef = await addDoc(collection(db, "students" ), formData);
-  console.log("Document written with ID: ", docRef.id) ;
-  return true;
-} catch (e) {
-  console.error("Error adding document: ", e);
-  return false;
+    const docRef = await addDoc(collection(db, "students"), formData);
+    console.log("Document written with ID: ", docRef.id);
+    return true;
+  } catch (e) {
+    console.error("Error adding document: ", e);
+    return false;
+  }
 }
+function displayLoader() {
+  loader.classList.add("block");
+  loader.classList.remove('hidden');
 }
-function displayLoader(){
-loader.classList.add("block");
-loader.classList.remove('hidden');
-}
-function hideLoader(){
+function hideLoader() {
   loader.classList.add("hidden");
   loader.classList.remove('block');
 }
-function createStudent(email, password){
+function createStudent(email, password) {
   displayLoader();
   createUserWithEmailAndPassword(auth, email, password)
-  .then(async (userCredential) => {
-    const user = userCredential.user;
-     const keys = Object.keys(formData);
-    const lastKey = keys[keys.length - 1];
-    delete formData[lastKey]; 
-    console.log(formData)
-    if(await storeStudentDataInFirestore()){
-      alert("Student data stored successfully")
-      window.location = "/index.html"
-      hideLoader();
-    }
-    else{
-      alert("something went wrong")
-    }
-    
+    .then(async (userCredential) => {
+      const user = userCredential.user;
+      const keys = Object.keys(formData);
+      const lastKey = keys[keys.length - 1];
+      delete formData[lastKey];
+      console.log(formData)
+      if (await storeStudentDataInFirestore()) {
+        alert("Student data stored successfully")
+        window.location = "/index.html"
+        hideLoader();
+      }
+      else {
+        alert("something went wrong")
+      }
 
-  })
-  .catch((error) => {
-    hideLoader();
-    const errorMessage = error.message;
-    console.log(errorMessage)
-  });
+
+    })
+    .catch((error) => {
+      hideLoader();
+      const errorMessage = error.message;
+      console.log(errorMessage)
+    });
 }
 
 syncInputs();
+
 
 
 $("#country").countrySelect();
 // let countryData = $("#country").countrySelect("getSelectedCountryData");
 // formData.country = countryData.name;
 
+// document.addEventListener("DOMContentLoaded", () => {
+//   $("#country").countrySelect();
+// });
+
+import intlTelInput from "intl-tel-input";
+import "intl-tel-input/build/css/intlTelInput.css";
 
 const phoneInput = document.querySelector("#phone");
+
 if (phoneInput) {
-  window.intlTelInput(phoneInput, {
+  intlTelInput(phoneInput, {
     loadUtils: () =>
-      import("https://cdn.jsdelivr.net/npm/intl-tel-input@26.4.1/build/js/utils.js"),
+      import("intl-tel-input/build/js/utils.js"),
   });
 }

@@ -1,6 +1,5 @@
 console.log("hello world")
-// import { firebaseConfig } from "../../i-learn/config.js";
-
+import { firebaseConfig } from "../config/config.js";
 
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
@@ -25,9 +24,9 @@ const learningPreferenceBtns = [
   { id: 6, title: "Auditory", borderColor: "#FF9F01", selected: false },
   { id: 7, title: "Kinesthetic", borderColor: "#A168BE", selected: false },
 ];
-// const app = initializeApp(firebaseConfig);
-// const auth = getAuth(app);
-// const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
 const profilePicInput = document.getElementById("profile-pic")
 const idCardPicInput = document.getElementById("id-card")

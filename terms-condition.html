@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/terms-condition/style.css">
+    <link rel="stylesheet" href="/globalCSS/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-[#F5F5F5] flex justify-center items-center p-3 min-h-screen">
+
+     <section
+      class="w-full min-w-[320px] relative shadow-md max-w-[810px] min-h-[500px] bg-white rounded-2xl p-4 flex flex-col items-center gap-4"
+    >
+      <button
+       onclick=""
+        class="bg-[#FF9F01] absolute left-3 top-4 w-[40px] h-[40px] flex rounded-full justify-center items-center rotate-90"
+      >
+        <svg
+          class="rotate-270"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.4829 7.03454L9.51739 12.0001L14.4829 16.9656"
+            stroke="white"
+            stroke-width="2"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+      <strong class="text-xl">Terms & Condition</strong>
+
+      <form
+        id="form"
+        action=""
+        class="flex mt-7 flex-col gap-5 items-center w-full min-w-[320px] max-w-full"
+      >
+        
+     <div class="content relative flex w-full flex-col gap-2 border border-gray-300 max-h-[500px] overflow-y-auto rounded-2xl p-3">
+        <strong>1. What We Offer</strong>
+        <span>At iLearn Tutors, your child’s learning journey is supported through:</span>
+        <ul class="text-[#575757] list-disc pl-5 mt-5">
+            <li class="">One-on-one online tutoring with qualified educators</li>
+            <li>Smart, AI-powered academic assistance</li>
+            <li>Access to curated study materials and interactive tools</li>
+            <li>A school tracking and management dashboard</li>
+            <li>Progress reports and performance analytics</li>
+        </ul>
+
+          <strong>2. What We Expect from You</strong>
+        <span>To ensure a smooth and supportive experience:</span>
+        <ul class="text-[#575757] list-disc pl-5 mt-5">
+            <li class="">Provide accurate details during registration</li>
+            <li>Encourage respectful behavior during sessions</li>
+            <li>Make timely payments for services</li>
+            <li>Help maintain professional boundaries between tutors and students</li>
+            <li>Follow platform guidelines and policies</li>
+        </ul>
+
+         <strong>3. Payment & Trial Sessions</strong>
+        <ul class="text-[#575757] list-disc pl-5 mt-1">
+            <li class="">All payments are securely handled via Stripe</li>
+            <li>Trial sessions are available at £5 for 30 minutes (non-refundable)</li>
+            <li>Refunds may be considered if tutor performance falls short of expectations</li>
+           
+        </ul>
+
+          <strong>4. Platform Fees & Subscriptions</strong>
+        <ul class="text-[#575757] list-disc pl-5 mt-1">
+            <li class="">iLearn Tutors retains a 20% commission from each session fee</li>
+            <li>All transactions are subject to a no-refund policy</li>
+            <li>Cancelling a subscription stops future charges but does not refund past payments</li>
+           
+        </ul>
+
+
+     </div>
+     <div class="accept-terms flex gap-2 self-start -mt-3">
+    <input class="w-[20px] h-[20px] rounded-2xl items-center" type="checkbox">
+    <span>I accept the platform’s <a class="text-(--primaryColor) underline" href="">Terms & Conditions</a></span>
+</div>
+    
+        <button
+          id="nextBtn"
+          
+          class="bg-(--primaryColor) p-3 text-white rounded-full cursor-pointer min-w-[320px] max-w-[500px] transform-transition duration-300 hover:bg-[#1c5a54] mt-4"
+        >
+          Confirm
+        </button>
+
+        
+      </form>
+    </section>
+
+<script type="module" src="/src/terms-condition/script.js"></script>
+</body>
+</html>

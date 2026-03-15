@@ -1,4 +1,7 @@
 console.log("hello world")
+import $ from "jquery";
+window.$ = $;
+window.jQuery = $;
 import { firebaseConfig } from "../config.js";
 
 import { initializeApp } from "firebase/app";
@@ -740,8 +743,8 @@ syncInputs();
 
 
 $("#country").countrySelect();
-let countryData = $("#country").countrySelect("getSelectedCountryData");
-formData.country = countryData.name;
+// let countryData = $("#country").countrySelect("getSelectedCountryData");
+// formData.country = countryData.name;
 
 
 const phoneInput = document.querySelector("#phone");

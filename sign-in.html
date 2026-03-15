@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Nastaliq+Urdu:wght@400..700&family=Orbitron:wght@400..900&family=Phudu:wght@300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/sign-in/style.css" />
+     <link rel="stylesheet" href="/globalCSS/style.css">
+  </head>
+  <body class="bg-[#F5F5F5] flex justify-center items-center h-screen p-3">
+    <section
+      class="w-full min-w-[320px] shadow-md max-w-[800px] h-[500px] bg-white rounded-2xl p-5 flex flex-col items-center gap-4"
+    >
+      <strong>Sign-in</strong>
+      <form
+        id="form"
+        action=""
+        class="flex flex-col gap-3 w-full h-full min-w-[320px] max-w-[450px] justify-between"
+      >
+        <div class="flex flex-col gap-3">
+          <label for="" class="ml-2">Email</label>
+          <input
+            type="text"
+            required
+            placeholder="john@gmail.com"
+            name="email"
+            class="p-3 border border-gray-300 rounded-full pl-5"
+          />
+          <label for="" class="ml-2 pt-2">Password</label>
+          <div class="relative">
+            <input
+              id="password"
+              required
+              type="password"
+              name="password"
+              placeholder="●●●●●●●●●"
+              class="p-3 border border-gray-300 w-full rounded-full pl-5 text-gray-500 text-sm"
+            />
+            
+            <svg
+              
+             id="eye-btn"
+              class="absolute right-3 top-1/2 -translate-y-1/2 hidden transition-transform duration-500 ease-in-out"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+            
+              <path
+                d="M21.544 11.045C21.848 11.4713 22 11.6845 22 12C22 12.3155 21.848 12.5287 21.544 12.955C20.1779 14.8706 16.6892 19 12 19C7.31078 19 3.8221 14.8706 2.45604 12.955C2.15201 12.5287 2 12.3155 2 12C2 11.6845 2.15201 11.4713 2.45604 11.045C3.8221 9.12944 7.31078 5 12 5C16.6892 5 20.1779 9.12944 21.544 11.045Z"
+                stroke="#287C74"
+                stroke-width="1.5"
+              />
+              <path
+                d="M15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12Z"
+                stroke="#287C74"
+                stroke-width="1.5"
+              />
+              
+            </svg>
+            <img id="close-eye"  class="w-6 absolute right-3  top-1/2 -translate-y-1/2 transition-transform duration-500 ease-in-out" src="/src/assets/eye-close-svgrepo-com.svg" alt="icon">
+           
+          </div>
+
+          <a
+            class="underline text-(--primaryColor) self-end duration-100 hover:text-green-400"
+            href="/forget-password.html"
+            >Forget Password?</a
+          >
+        </div>
+        <div class="flex flex-col gap-3 items-center">
+          <button
+            class="bg-(--primaryColor) p-3 text-white rounded-full w-full cursor-pointer transform-transition duration-100 hover:bg-green-400"
+          >
+            Sign in
+          </button>
+          <span class="mt-3 font-semibold"
+            >Don't have account?
+            <a
+              class="text-(--primaryColor) uration-100 hover:text-green-400"
+              href="/sign-up.html"
+              >Sign up</a
+            ></span
+          >
+        </div>
+      </form>
+    </section>
+
+    <script type="module" src="/src/sign-in/script.js"></script>
+  </body>
+</html>

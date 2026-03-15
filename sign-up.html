@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/globalCSS/style.css">
+    <link rel="stylesheet" href="/src/sign-up/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+     
+    
+</head>
+<body class="bg-[#F5F5F5] flex justify-center items-center h-screen p-3">
+ <section
+      class="w-full min-w-[320px] relative shadow-md max-w-[800px] min-h-[500px] bg-white rounded-2xl p-5 flex flex-col items-center gap-4"
+    >
+      
+        <button onclick="history.back()"  class="bg-[#FF9F01] absolute left-3 top-4  w-[40px] h-[40px]  flex rounded-full justify-center items-center rotate-90">
+            <svg class="rotate-270" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.4829 7.03454L9.51739 12.0001L14.4829 16.9656" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+</button>
+        <strong class="text-xl">Sign Up</strong>
+   
+      <form
+        id="form"
+        action=""
+        class="flex mt-7  flex-col   gap-5 items-center w-full h-full min-w-[320px] max-w-[700px] justify-center"
+      >
+
+      <div class="cards flex flex-wrap  gap-5 justify-center">
+        <div  class="flex flex-col gap-3 items-center justify-center focus:outline-2">
+        <button type="button" class="btn parent-btn flex bg-[#FEE1E1] cursor-pointer rounded-2xl p-3 h-[220px] w-[220px] sm:w-[200px] transform-transition linear duration-30">
+            <img src="/src/assets/parent-icon.svg" alt="icon">
+        </button>
+        <span class="text-lg font-semibold">Parent</span>
+        </div>
+
+         <div class="flex flex-col gap-3 items-center justify-center">
+        <button type="button" class="btn parent-btn bg-[#FEEFE1] cursor-pointer flex rounded-2xl p-3 h-[220px]  w-[220px] sm:w-[200px] transform-transition linear duration-30">
+            <img src="/src/assets/tutor-icon.svg" alt="icon">
+        </button>
+        <span class="text-lg font-semibold">Tutor</span>
+        </div>
+
+         <div class="flex flex-col gap-3 items-center justify-center">
+        <button type="button" class="btn parent-btn flex bg-[#F7E5FF] cursor-pointer rounded-2xl p-3 h-[220px]  w-[220px] sm:w-[200px] transform-transition linear duration-30">
+            <img src="/src/assets/student-icon.svg" alt="">
+        </button>
+        <span class="text-lg font-semibold">Student</span>
+        </div>
+          
+      </div>
+     
+          <button
+          id="nextBtn"
+          disabled
+          
+            class="bg-gray-300 p-3 text-white rounded-full min-w-[320px] max-w-[500px] transform-transition duration-300"
+          >
+            Next
+          </button>
+          
+      
+      </form>
+    </section>
+<script type="module" src="/src/sign-up/script.js"></script>
+</body>
+</html>

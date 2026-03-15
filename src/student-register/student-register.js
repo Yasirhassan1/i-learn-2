@@ -741,13 +741,13 @@ syncInputs();
 
 
 
-$("#country").countrySelect();
+// $("#country").countrySelect();
 // let countryData = $("#country").countrySelect("getSelectedCountryData");
 // formData.country = countryData.name;
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   $("#country").countrySelect();
-// });
+document.addEventListener("DOMContentLoaded", () => {
+  $("#country").countrySelect();
+});
 
 import intlTelInput from "intl-tel-input";
 import "intl-tel-input/build/css/intlTelInput.css";

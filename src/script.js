@@ -6,6 +6,16 @@ import teachingIcon from "./assets/teaching.svg"
 import studentIcon from "./assets/student.svg"
 import awardIcon from "./assets/award-01.svg"
 import settingIcon from "./assets/account-setting-01.svg"
+const menuBtn = document.getElementById("menuBtn")
+const closeMenuBtn = document.getElementById("closeMenuBtn")
+
+menuBtn.addEventListener("click", ()=>{
+  openMenu()
+})
+closeMenuBtn.addEventListener("click", ()=>{
+  openMenu()
+})
+
 
 const navItems = [
   {
@@ -90,12 +100,34 @@ initializeSidebar();
 
 const redChatBtn = document.getElementById("red-chat-btn");
 const yellowChatBtn = document.getElementById("yellow-chat-btn")
+const redChatboxCloseBtn = document.getElementById("redChatboxCloseBtn")
+const yellowChatboxCloseBtn = document.getElementById("yellowChatboxCloseBtn")
+const purpleChatboxCloseBtn = document.getElementById("purpleChatboxCloseBtn")
 const redChatBox = document.getElementById("red-chat-box")
 const yellowChatBox = document.getElementById("yellow-chat-box")
 const main = document.getElementById('main')
 const chatboxBtns = Array.from(document.getElementsByClassName("chatboxBtn"))
 const chatBoxes = Array.from(document.getElementsByClassName("chatbox"))
 const bgOverlay = document.getElementById("overlay")
+
+bgOverlay.addEventListener("click", ()=>{
+  closeMenu()
+})
+
+redChatboxCloseBtn.addEventListener("click", ()=>{
+  closeChatBox(0)
+
+})
+
+yellowChatboxCloseBtn.addEventListener("click", ()=>{
+  closeChatBox(1)
+
+})
+
+purpleChatboxCloseBtn.addEventListener("click", ()=>{
+  closeChatBox(2)
+
+})
 const isChatboxesOpen = [false, false];
 
 chatboxBtns.forEach((cur, ind)=>{

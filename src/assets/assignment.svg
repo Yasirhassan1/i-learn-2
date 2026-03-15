@@ -1,0 +1,49 @@
+<svg
+                  width="30"
+                  height="30"
+                  viewBox="0 0 35 35"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.83317 4.375H4.37484C3.56943 4.375 2.9165 5.02793 2.9165 5.83333V26.25L5.104 30.625L7.2915 26.25V5.83333C7.2915 5.02793 6.63858 4.375 5.83317 4.375Z"
+                    stroke="#287C74"
+                    stroke-width="2.1875"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M30.6248 17.5019V11.6677C30.6248 8.2299 30.6248 6.51099 29.557 5.443C28.4891 4.375 26.7705 4.375 23.3332 4.375H18.9582C15.5209 4.375 13.8022 4.375 12.7343 5.443C11.6665 6.51099 11.6665 8.2299 11.6665 11.6677V23.3361C11.6665 26.7738 11.6665 28.4928 12.7343 29.5609C13.6391 30.4658 15.011 30.6039 17.4998 30.625"
+                    stroke="#287C74"
+                    stroke-width="2.1875"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M17.5 10.2083H24.7917"
+                    stroke="#287C74"
+                    stroke-width="2.1875"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M17.5 16.0417H24.7917"
+                    stroke="#287C74"
+                    stroke-width="2.1875"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M20.4165 27.7083C20.4165 27.7083 22.604 28.4375 24.0623 30.625C24.0623 30.625 26.2498 24.7917 32.0832 21.875"
+                    stroke="#287C74"
+                    stroke-width="2.1875"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M2.9165 10.2083H7.2915"
+                    stroke="#287C74"
+                    stroke-width="2.1875"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>

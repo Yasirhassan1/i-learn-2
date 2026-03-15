@@ -1,0 +1,20 @@
+/* .anima{
+    transition: width 4s ease-in-out, min-height 5s ease-in-out, opacity 3s ease-in-out;
+}
+ */
+
+.iti__selected-country-primary{
+    border-start-start-radius: 20px;
+     border-bottom-left-radius: 20px;
+    
+}
+
+.selected-flag{
+     border-start-start-radius: 20px;
+     border-bottom-left-radius: 20px;
+
+}
+input[type="checkbox"] {
+  accent-color: #287C74; 
+}
+

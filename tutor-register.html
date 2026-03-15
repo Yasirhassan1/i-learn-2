@@ -1,0 +1,1274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/tutor-register/style.css" />
+    <link rel="stylesheet" href="/globalCSS/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-[#F5F5F5] flex justify-center items-center p-3 min-h-screen">
+    <section
+      class="w-full relative shadow-md max-w-[840px] anim min-h-[500px] md:min-h-[800px] bg-white rounded-2xl p-3 flex flex-col items-center gap-5"
+    >
+      <button
+        id="back-btn"
+        class="bg-[#FF9F01] absolute left-3 top-4 w-[40px] h-[40px] flex rounded-full justify-center items-center rotate-90"
+      >
+        <svg
+          class="rotate-270"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.4829 7.03454L9.51739 12.0001L14.4829 16.9656"
+            stroke="white"
+            stroke-width="2"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+      <strong id="form-title" class="text-xl">Sign Up</strong>
+      <div class="steps-container flex flex-col gap-3 w-full mt-4">
+        <div
+          class="steps flex gap-4 justify-between text-xs sm:text-sm sm:font-semibold"
+        >
+          <span class="text-(--primaryColor) form-label">1. Profile</span>
+          <span class="form-label">2.Teaching Profile & Subjects</span>
+          <span class="form-label">3. Verification</span>
+          <span class="form-label">4. Availablity</span>
+          <span class="form-label">5. Account Setup</span>
+        </div>
+        <div
+          class="bar w-full border border-[#E7E7E7] b rounded-full h-3 flex items-center"
+        >
+          <div
+            id="acutal-bar"
+            class="w-[10%] bg-(--primaryColor) transform-transition ease-in-out duration-500 h-full rounded-full"
+          ></div>
+        </div>
+      </div>
+      <form
+        id="multiStepForm"
+        action=""
+        class="w-full flex flex-col items-center"
+      >
+        <div
+          id="form1"
+          class="form-step flex mt-3 flex-col gap-5 items-center w-full min-w-[320px] max-w-full"
+          data-setup="1"
+        >
+          <div class="inputContainer flex flex-col gap-3 flex-wrap w-full p-2">
+            <div class="r1 flex gap-3 justify-between flex-col sm:flex-row">
+              <div
+                class="left flex flex-col gap-2 flex-1 flex-wrap form-1-input-container"
+              >
+                <label for=""
+                  >Full Name <span class="text-(--primaryColor)">*</span></label
+                >
+                <input
+                  type="text"
+                  required
+                  name="fullName"
+                  placeholder="John Doe"
+                  class="form-1-input border border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                />
+                <small class="error"></small>
+              </div>
+
+              <div
+                class="right flex flex-col gap-2 flex-1 form-1-input-container"
+              >
+                <label for="email"
+                  >Email <span class="text-(--primaryColor)">*</span></label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="John@gmail.com"
+                  class="form-1-input border border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                />
+                <small class="error"></small>
+              </div>
+            </div>
+            <div class="r2 flex gap-3 justify-between flex-col sm:flex-row">
+              <div
+                class="left flex flex-col gap-2 flex-1 flex-wrap form-1-input-container"
+              >
+                <label for="dob"
+                  >Date of Birth
+                  <span class="text-(--primaryColor)">*</span></label>
+                <input
+                  type="date"
+                  id="dob"
+                  name="dob"
+                  required
+                  class="form-1-input border border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                />
+                <small class="error"></small>
+              </div>
+
+              <div
+                class="right flex flex-col gap-2 flex-1 form-1-input-container"
+              >
+                <label for=""
+                  >Gender <span class="text-(--primaryColor)">*</span></label
+                >
+                <select
+                  name="gender"
+                  required
+                  id=""
+                  class="form-1-input border border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                >
+                  <option value="">Select</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+                <small class="error"></small>
+              </div>
+            </div>
+
+            <div class="r3 flex gap-3 justify-between flex-col sm:flex-row">
+              <div
+                class="left flex flex-col gap-2 flex-1 flex-wrap form-1-input-container"
+              >
+                <label for=""
+                  >Phone Number
+                  <span class="text-(--primaryColor)">*</span></label
+                >
+                <input
+                  id="phonee"
+                  name="phoneNo"
+                  required
+                  type="tel"
+                  placeholder="92347586"
+                  class="form-1-input border border-[#E7E7E7] w-full p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                />
+                <small class="error"></small>
+              </div>
+
+              <div
+                class="right flex flex-col gap-2 flex-1 form-1-input-container"
+              >
+                <label for=""
+                  >Address Line 1
+                  <span class="text-(--primaryColor)">*</span></label
+                >
+                <input
+                  type="text"
+                  required
+                  name="address1"
+                  placeholder="221B Baker Street"
+                  class="form-1-input border border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                />
+                <small class="error"></small>
+              </div>
+            </div>
+
+            <div class="r4 flex gap-3 justify-between flex-col sm:flex-row">
+              <div
+                class="left flex flex-col gap-2 flex-1 flex-wrap form-1-input-container"
+              >
+                <label for=""
+                  >Address Line 2
+                  <span class="text-(--primaryColor)">*</span></label
+                >
+                <input
+                  type="text"
+                  required
+                  name="address2"
+                  placeholder="Apt 4B"
+                  class="form-1-input border border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                />
+                <small class="error"></small>
+              </div>
+
+              <div
+                class="right flex flex-col gap-2 flex-1 form-1-input-container"
+              >
+                <label for=""
+                  >City <span class="text-(--primaryColor)">*</span></label
+                >
+                <input
+                  type="text"
+                  required
+                  name="city"
+                  placeholder="Karachi"
+                  class="form-1-input border border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                />
+                <small class="error"></small>
+              </div>
+            </div>
+            <div class="r5 flex gap-3 justify-between flex-col sm:flex-row">
+              <div
+                class="left flex flex-col gap-2 flex-1 flex-wrap form-1-input-container"
+              >
+                <label for=""
+                  >Postcode <span class="text-(--primaryColor)">*</span></label
+                >
+                <input
+                  typemode="numeric"
+                  required
+                  name="postCode"
+                  placeholder="3223"
+                  class="form-1-input border border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                />
+                <small class="error"></small>
+              </div>
+
+              <div
+                class="right flex flex-col gap-2 flex-1 form-1-input-container"
+              >
+                <label for=""
+                  >Country <span class="text-(--primaryColor)">*</span></label
+                >
+                <!-- <select
+              id="country"
+                name="country"
+                required
+                
+                class="form-1-input border border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+              >
+                <option value="">Select</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="India">India</option>
+                <option value="andorra">Andorra</option>
+              </select> -->
+                <input
+                  name="country"
+                  type="text"
+                  class="border form-1-input w-full border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                  id="countryy"
+                  placeholder="Pakistan"
+                />
+                <small class="error"></small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="form2"
+          class="form-step flex mt-3 hidden flex-col gap-5 items-center w-full min-w-[320px] max-w-full"
+          data-setup="2"
+        >
+          <div class="inputContainer flex flex-col gap-2 w-full">
+            <div class="r1 flex gap-3 justify-between flex-col sm:flex-row">
+              <div
+                class="left flex flex-col gap-2 flex-1 flex-wrap form-2-input-container"
+              >
+                <label for=""
+                  >Teaching Experience
+                  <span class="text-(--primaryColor)">*</span></label
+                >
+                <input
+                  type="text"
+                  required
+                  name="teachingExperience"
+                  placeholder="John Doe"
+                  class="form-2-input border border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                />
+                <small class="error"></small>
+              </div>
+
+              <div
+                class="right flex flex-col gap-2 flex-1 form-2-input-container"
+              >
+                <label for="highestQualification"
+                  >Highest Qualification
+                  <span class="text-(--primaryColor)">*</span></label
+                >
+                <input
+                  type="text"
+                  name="highestQualification"
+                  required
+                  placeholder="Highest Qualification"
+                  class="form-2-input border border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                />
+                <small class="error"></small>
+              </div>
+            </div>
+
+            <div class="r2 flex flex-col gap-4">
+              <div class="r2r1 flex gap-3 justify-between flex-col sm:flex-row">
+                <div
+                  class="left flex flex-col gap-2 flex-1 form-2-input-container"
+                >
+                  <label for="">Short Bio/ Teaching Philosophy</label>
+                  <textarea
+                    name="bio"
+                    placeholder="write"
+                    class="form-2-input border border-[#E7E7E7] p-3 rounded-xl focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                    rows="3"
+                    name=""
+                    id=""
+                  ></textarea>
+                  <small class="error"></small>
+                </div>
+
+                <div
+                  class="right flex flex-col gap-2 flex-1 form-2-input-container"
+                >
+                  <label for="">Other Certifications</label>
+                  <ul class="flex flex-col gap-2 flex-1">
+                    <li class="flex gap-2 flex-1 items-center">
+                      <input
+                        class="form-2-input border-green-400"
+                        type="checkbox"
+                        name="certification"
+                        id="tesol"
+                      />
+                      <label for="tesol">TESOL Certified</label>
+                    </li>
+
+                    <li class="flex gap-2 flex-1 items-center">
+                      <input
+                        class="form-2-input border-green-400"
+                        type="checkbox"
+                        name="certification"
+                        id="child"
+                      />
+                      <label for="child">Child Psychology Basics</label>
+                    </li>
+
+                    <li class="flex gap-2 flex-1 items-center">
+                      <input
+                        class="form-2-input border-green-400"
+                        type="checkbox"
+                        name="certification"
+                        id="online"
+                      />
+                      <label for="online">(SEN) Training</label>
+                    </li>
+                  </ul>
+                  <small class="error"></small>
+                </div>
+              </div>
+
+              <div class="r2r2 flex gap-3 justify-between flex-col sm:flex-row">
+                <div class="left flex flex-col gap-2 flex-1">
+                  <label for="">Upload CV(PDF/DOC)</label>
+                  <label
+                    for="file2"
+                    class="form-2-input-container flex cursor-pointer p-4 w-full items-center flex-col outline outline-[#E7E7E7] rounded-xl focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                  >
+                    <svg
+                      width="45"
+                      height="45"
+                      viewBox="0 0 45 45"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_533_853)">
+                        <path
+                          d="M30 30L22.5 22.5L15 30"
+                          stroke="#287C74"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M22.5 22.5V39.375"
+                          stroke="#287C74"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M38.2315 34.481C40.0602 33.484 41.5049 31.9064 42.3375 29.9972C43.1701 28.088 43.3431 25.9558 42.8294 23.9373C42.3156 21.9188 41.1443 20.1289 39.5002 18.85C37.8562 17.5711 35.8331 16.8762 33.7502 16.8748H31.3877C30.8202 14.6796 29.7624 12.6417 28.2939 10.9141C26.8254 9.18663 24.9843 7.81451 22.9092 6.90093C20.834 5.98735 18.5788 5.55608 16.3129 5.63957C14.0471 5.72305 11.8297 6.3191 9.82744 7.38291C7.82514 8.44672 6.09006 9.9506 4.75265 11.7815C3.41523 13.6124 2.51027 15.7227 2.10582 17.9537C1.70136 20.1846 1.80793 22.4783 2.41751 24.6621C3.02708 26.846 4.12381 28.8633 5.62523 30.5623"
+                          stroke="#287C74"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M30 30L22.5 22.5L15 30"
+                          stroke="#287C74"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_533_853">
+                          <rect width="45" height="45" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    Upload file
+                    <input
+                      name="cv"
+                      id="file2"
+                      class="form-2-input w-fit hidden"
+                      width="10"
+                      height=""
+                      type="file"
+                    />
+                    <small class="error"></small>
+                  </label>
+                </div>
+
+                <div
+                  class="right flex flex-col gap-2 flex-1 form-2-input-container"
+                >
+                  <label for="">Subjects You can Teach</label>
+                  <ul class="flex flex-col gap-2 flex-1">
+                    <li class="flex gap-2 flex-1 items-center">
+                      <input
+                        class="form-2-input border-green-400"
+                        type="checkbox"
+                        name="subject"
+                        id="english"
+                      />
+                      <label for="english">English</label>
+                    </li>
+
+                    <li class="flex gap-2 flex-1 items-center">
+                      <input
+                        class="form-2-input border-green-400"
+                        type="checkbox"
+                        name="subject"
+                        id="math"
+                      />
+                      <label for="math">Math</lable>
+                    </li>
+
+                    <li class="flex gap-2 flex-1 items-center">
+                      <input
+                        class="form-2-input border-green-400"
+                        type="checkbox"
+                        name="subject"
+                        id="science"
+                      />
+                      <label for="science">Science</label>
+                    </li>
+                  </ul>
+                  <small class="error"></small>
+                </div>
+              </div>
+
+              <div class="r2r3 flex gap-3 justify-between flex-col sm:flex-row">
+                <div class="left flex flex-col gap-2 flex-1">
+                  <label for="">Upload Teaching Certificate (optional))</label>
+                  <label
+                    for="file4"
+                    class="form-2-input-container flex cursor-pointer p-4 w-full items-center justify-center flex-col outline outline-[#E7E7E7] rounded-xl focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor) flex-1"
+                  >
+                    <svg
+                      width="45"
+                      height="45"
+                      viewBox="0 0 45 45"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_533_853)">
+                        <path
+                          d="M30 30L22.5 22.5L15 30"
+                          stroke="#287C74"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M22.5 22.5V39.375"
+                          stroke="#287C74"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M38.2315 34.481C40.0602 33.484 41.5049 31.9064 42.3375 29.9972C43.1701 28.088 43.3431 25.9558 42.8294 23.9373C42.3156 21.9188 41.1443 20.1289 39.5002 18.85C37.8562 17.5711 35.8331 16.8762 33.7502 16.8748H31.3877C30.8202 14.6796 29.7624 12.6417 28.2939 10.9141C26.8254 9.18663 24.9843 7.81451 22.9092 6.90093C20.834 5.98735 18.5788 5.55608 16.3129 5.63957C14.0471 5.72305 11.8297 6.3191 9.82744 7.38291C7.82514 8.44672 6.09006 9.9506 4.75265 11.7815C3.41523 13.6124 2.51027 15.7227 2.10582 17.9537C1.70136 20.1846 1.80793 22.4783 2.41751 24.6621C3.02708 26.846 4.12381 28.8633 5.62523 30.5623"
+                          stroke="#287C74"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M30 30L22.5 22.5L15 30"
+                          stroke="#287C74"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_533_53">
+                          <rect width="45" height="45" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    Upload file
+                    <input
+                      name="teachingCertificate"
+                      id="file3"
+                      class="form-2-input w-fit hidden"
+                      width="10"
+                      height=""
+                      type="file"
+                    />
+                    <small class="error"></small>
+                  </label>
+                </div>
+
+                <div class="right flex flex-col gap-2 flex-1">
+                  <label for="">Age Groups you can teachh</label>
+                  <ul class="flex flex-col gap-2 flex-1 form-2-input-container">
+                    <li class="flex gap-2 flex-1 items-center">
+                      <input
+                        class="form-2-input border-green-400"
+                        type="checkbox"
+                        name="ageGroup"
+                        id="5-7years"
+                      />
+                      <label for="5-7years">5-7 (Years)</label>
+                    </li>
+
+                    <li class="flex gap-2 flex-1 items-center">
+                      <input
+                        class="form-2-input border-green-400"
+                        type="checkbox"
+                        name="ageGroup"
+                        id="8-12years"
+                      />
+                      <label for="8-12years">8-12 (Years)</label>
+                    </li>
+
+                    <li class="flex gap-2 flex-1 items-center">
+                      <input
+                        class="form-2-input border-green-400"
+                        type="checkbox"
+                        name="ageGroup"
+                        id="13-16years"
+                      />
+                      <label for="13-16years">13-16 (Years)</label>
+                    </li>
+
+                    <li class="flex gap-2 flex-1 items-center">
+                      <input
+                        class="form-2-input border-green-400"
+                        type="checkbox"
+                        name="ageGroup"
+                        id="adult"
+                      />
+                      <label for="adult">Adults</label>
+                    </li>
+                  </ul>
+                  <small class="error"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="form3"
+          class="form-step flex mt-3 hidden flex-col gap-5 items-center w-full max-w-full"
+          data-setup="3"
+        >
+          <label
+            for="file1"
+            class="form-3-input-container flex p-4 cursor-pointer items-center flex-col outline outline-[#E7E7E7] rounded-xl focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+          >
+            <svg
+              width="54"
+              height="54"
+              viewBox="0 0 54 54"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.2217 9.44971C26.8443 9.25136 27.4265 9.26792 27.7881 9.44873L27.8408 9.4751H27.9004C27.9314 9.47524 27.9902 9.49262 28.0879 9.56592C28.1833 9.63752 28.2828 9.73646 28.3984 9.85205L37.3984 18.8521C38.2005 19.6544 38.2005 20.8457 37.3984 21.6479C37.1882 21.8582 36.9878 22.0064 36.7705 22.103C36.5543 22.1991 36.3083 22.2495 36 22.2495C35.6917 22.2495 35.4457 22.1991 35.2295 22.103C35.0122 22.0064 34.8118 21.8582 34.6016 21.6479L29 16.0464V33.7495C29 34.3677 28.7947 34.864 28.4541 35.2046C28.1136 35.545 27.618 35.7495 27 35.7495C26.382 35.7495 25.8864 35.545 25.5459 35.2046C25.2053 34.864 25 34.3677 25 33.7495V16.0464L19.3984 21.6479C18.5961 22.4503 17.4039 22.4503 16.6016 21.6479C15.7995 20.8457 15.7996 19.6544 16.6016 18.8521L25.6016 9.85205C25.6825 9.77112 25.7617 9.7295 25.874 9.67334C25.9727 9.62398 26.0955 9.56107 26.2217 9.44971Z"
+                fill="#287C74"
+                stroke="white"
+                stroke-width="0.5"
+              />
+              <path
+                d="M42.75 29.5C43.3682 29.5 43.8635 29.7053 44.2041 30.0459C44.5447 30.3865 44.75 30.8818 44.75 31.5V36C44.75 40.8119 40.8119 44.75 36 44.75H18C13.1881 44.75 9.25 40.8119 9.25 36V31.5C9.25 30.8818 9.45534 30.3865 9.7959 30.0459C10.1365 29.7053 10.6318 29.5 11.25 29.5C11.8682 29.5 12.3635 29.7053 12.7041 30.0459C13.0447 30.3865 13.25 30.8818 13.25 31.5V36C13.25 38.6131 15.3869 40.75 18 40.75H36C38.6131 40.75 40.75 38.6131 40.75 36V31.5C40.75 30.8818 40.9553 30.3865 41.2959 30.0459C41.6365 29.7053 42.1318 29.5 42.75 29.5Z"
+                fill="#287C74"
+                stroke="white"
+                stroke-width="0.5"
+              />
+            </svg>
+            Upload Profile
+            <input
+              name="profilePic"
+              id="file1"
+              class="form-3-input w-fit hidden"
+              heigth="70"
+              width="10"
+              height=""
+              type="file"
+            />
+            <small class="error"></small>
+          </label>
+          <div class="flex gap-3 justify-between w-full flex-col sm:flex-row">
+            <div class="flex flex-col gap-1 flex-1">
+              <label for="">Upload Government ID</label>
+              <label
+                for="file22"
+                class="form-3-input-container flex cursor-pointer p-4 items-center flex-col outline outline-[#E7E7E7] rounded-xl focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+              >
+                <svg
+                  width="45"
+                  height="45"
+                  viewBox="0 0 45 45"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_533_853)">
+                    <path
+                      d="M30 30L22.5 22.5L15 30"
+                      stroke="#287C74"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M22.5 22.5V39.375"
+                      stroke="#287C74"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M38.2315 34.481C40.0602 33.484 41.5049 31.9064 42.3375 29.9972C43.1701 28.088 43.3431 25.9558 42.8294 23.9373C42.3156 21.9188 41.1443 20.1289 39.5002 18.85C37.8562 17.5711 35.8331 16.8762 33.7502 16.8748H31.3877C30.8202 14.6796 29.7624 12.6417 28.2939 10.9141C26.8254 9.18663 24.9843 7.81451 22.9092 6.90093C20.834 5.98735 18.5788 5.55608 16.3129 5.63957C14.0471 5.72305 11.8297 6.3191 9.82744 7.38291C7.82514 8.44672 6.09006 9.9506 4.75265 11.7815C3.41523 13.6124 2.51027 15.7227 2.10582 17.9537C1.70136 20.1846 1.80793 22.4783 2.41751 24.6621C3.02708 26.846 4.12381 28.8633 5.62523 30.5623"
+                      stroke="#287C74"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M30 30L22.5 22.5L15 30"
+                      stroke="#287C74"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_5_853">
+                      <rect width="45" height="45" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                Upload file
+                <input
+                  name="govtId"
+                  id="file22"
+                  class="form-3-input w-fit hidden"
+                  width="10"
+                  height=""
+                  type="file"
+                />
+                <small class="error"></small>
+              </label>
+            </div>
+            <div class="flex flex-col gap-1 flex-1">
+              <label for="">DBS/ Background Check</label>
+              <label
+                for="file33"
+                class="form-3-input-container flex cursor-pointer p-4 items-center flex-col outline outline-[#E7E7E7] rounded-xl focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+              >
+                <svg
+                  width="45"
+                  height="45"
+                  viewBox="0 0 45 45"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_533_853)">
+                    <path
+                      d="M30 30L22.5 22.5L15 30"
+                      stroke="#287C74"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M22.5 22.5V39.375"
+                      stroke="#287C74"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M38.2315 34.481C40.0602 33.484 41.5049 31.9064 42.3375 29.9972C43.1701 28.088 43.3431 25.9558 42.8294 23.9373C42.3156 21.9188 41.1443 20.1289 39.5002 18.85C37.8562 17.5711 35.8331 16.8762 33.7502 16.8748H31.3877C30.8202 14.6796 29.7624 12.6417 28.2939 10.9141C26.8254 9.18663 24.9843 7.81451 22.9092 6.90093C20.834 5.98735 18.5788 5.55608 16.3129 5.63957C14.0471 5.72305 11.8297 6.3191 9.82744 7.38291C7.82514 8.44672 6.09006 9.9506 4.75265 11.7815C3.41523 13.6124 2.51027 15.7227 2.10582 17.9537C1.70136 20.1846 1.80793 22.4783 2.41751 24.6621C3.02708 26.846 4.12381 28.8633 5.62523 30.5623"
+                      stroke="#287C74"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M30 30L22.5 22.5L15 30"
+                      stroke="#287C74"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip533_853">
+                      <rect width="45" height="45" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                Upload file
+                <input
+                  name="bds"
+                  id="file33"
+                  class="form-3-input w-fit hidden"
+                  width="10"
+                  height=""
+                  type="file"
+                />
+                <small class="error"></small>
+              </label>
+            </div>
+          </div>
+          <div class="inputContainer flex flex-col gap-3 flex-wrap w-full p-2">
+            <div class="r1 flex gap-3 justify-between flex-col sm:flex-row">
+              <div
+                class="form-3-input-container left flex flex-col gap-2 flex-1 flex-wrap"
+              >
+                <label for="file4">DBS Issue Date</label>
+                <input
+                  id="file4"
+                  type="date"
+                  name="dbsIssueDate"
+                  placeholder=""
+                  required
+                  class="form-3-input border border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                />
+                <small class="error"></small>
+              </div>
+
+              <div
+                class="form-3-input-container right flex flex-col gap-2 flex-1"
+              >
+                <label for="">Certified Number</label>
+                <input
+                  type="text"
+                  name="certificateNo"
+                  required
+                  class="form-3-input border border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                  placeholder="CERT-AX92-5581"
+                />
+                <small class="error"></small>
+              </div>
+            </div>
+            <div
+              class="r2 flex gap-3 justify-between flex-col form-3-input-container"
+            >
+              <label for="">Why DBS Required</label>
+              <textarea
+                name="bdsRequirement"
+                placeholder="write"
+                class="form-3-input border border-[#E7E7E7] p-3 rounded-xl focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                rows="3"
+                name=""
+                id=""
+              ></textarea>
+              <small class="error"></small>
+            </div>
+          </div>
+
+          <div class="terms-container flex flex-col gap-2 self-start">
+            <div class="r1 flex gap-2 items-center form-3-input-container">
+              <input
+                name="consent1"
+                class="form-3-input w-[20px] h-[20px] rounded-2xl"
+                type="checkbox"
+              />
+              <p>
+                I accept the
+                <a href="#" class="text-(--primaryColor) underline"
+                  >Payment terms</a
+                >
+                and confirm card authorisation.
+              </p>
+              <small class="error"></small>
+            </div>
+
+            <div class="r2 flex gap-2 items-center form-3-input-container">
+              <input
+                name="consent2"
+                class="form-3-input w-[20px] h-[20px] rounded-2xl"
+                type="checkbox"
+              />
+              <p>
+                I agree to the
+                <a
+                  class="text-(--primaryColor) underline"
+                  href="/safeguarding-consent.html"
+                  >GDPR and safeguarding policies</a
+                >
+              </p>
+              <small class="error"></small>
+            </div>
+
+            <div class="r3 flex gap-2 items-center form-3-input-container">
+              <input
+                name="consent3"
+                class="form-3-input w-[20px] h-[20px] rounded-2xl bg-green-400"
+                type="checkbox"
+              />
+              <p>
+                I accept the platform’s
+                <a
+                  href="/terms-condition.html"
+                  class="text-(--primaryColor) underline"
+                  >Terms & Conditions</a
+                >
+              </p>
+              <small class="error"></small>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="form4"
+          class="form-step flex mt-3 hidden flex-col gap-5 items-center w-full max-w-full"
+          data-setup="4"
+        >
+          <span class="text-(--primaryColor) font-semibold">Step 1/2</span>
+          <strong class="self-start mt-3">Weekly Availability</strong>
+          <div
+            class="grid-container grid grid-cols-[120px_120px_120px_120px_120px_120px] grid-rows-[86px_1fr] gap-3 overflow-x-auto min-w-[320px] max-w-full"
+          >
+            <div
+              class="box bg-(--primaryColor) text-white flex justify-center items-center p-4 rounded-xl text-center"
+            >
+              Monday Today
+            </div>
+            <div
+              class="box bg-[#F4F5F7] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>Tue</span>
+              <span>10</span>
+            </div>
+
+            <div
+              class="box bg-[#F4F5F7] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>Wed</span>
+              <span>11</span>
+            </div>
+
+            <div
+              class="box bg-[#F4F5F7] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>Thu</span>
+              <span>12</span>
+            </div>
+
+            <div
+              class="box bg-[#F4F5F7] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>Fri</span>
+              <span>13</span>
+            </div>
+
+            <div
+              class="box bg-[#F4F5F7] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>Sat</span>
+              <span>14</span>
+            </div>
+
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>9:00 AM</span>
+            </div>
+
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>9:00 AM</span>
+            </div>
+
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>9:00 AM</span>
+            </div>
+
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>9:00 AM</span>
+            </div>
+
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>9:00 AM</span>
+            </div>
+
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>9:00 AM</span>
+            </div>
+
+            <!-- 10 -->
+
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>10:00 AM</span>
+            </div>
+
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>10:00 AM</span>
+            </div>
+            <div
+              class="time bg-(--primaryColor) text-white flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>10:00 AM</span>
+            </div>
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>10:00 AM</span>
+            </div>
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>10:00 AM</span>
+            </div>
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>10:00 AM</span>
+            </div>
+
+            <!-- 11 -->
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>11:00 AM</span>
+            </div>
+
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>11:00 AM</span>
+            </div>
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>11:00 AM</span>
+            </div>
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>11:00 AM</span>
+            </div>
+            <div
+              class="time bg-(--primaryColor) text-white flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>11:00 AM</span>
+            </div>
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>11:00 AM</span>
+            </div>
+            <!-- 12 -->
+            <div
+              class="time bg-(--primaryColor) text-white flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>12:00 AM</span>
+            </div>
+
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>12:00 AM</span>
+            </div>
+
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>12:00 AM</span>
+            </div>
+
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>12:00 AM</span>
+            </div>
+
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>12:00 AM</span>
+            </div>
+
+            <div
+              class="time bg-[#F4F5F7] text-[#6C717A] flex flex-col justify-center items-center p-4 rounded-xl"
+            >
+              <span>12:00 AM</span>
+            </div>
+          </div>
+
+          <div class="r2 flex gap-3 justify-between flex-col w-full">
+            <label for="">Custom Availability Note (Optional)</label>
+            <textarea
+              placeholder="write"
+              class="border border-[#E7E7E7] p-3 rounded-xl focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+              rows="3"
+              name=""
+              id=""
+            ></textarea>
+          </div>
+        </div>
+
+        <div
+          id="form5"
+          class="form-step flex mt-3 hidden flex-col gap-5 items-center w-full max-w-full"
+          data-setup="5"
+        >
+          <span class="text-(--primaryColor) font-semibold">Step 2/2</span>
+
+          <label class="self-start" for="">Hourly Rate</label>
+          <div class="flex gap-3 w-full">
+            <div class="form-5-input-container flex flex-col flex-1">
+            <input
+              typemode="numeric"
+              name="hourlyRate"
+              required
+              class="form-5-input border border-[#E7E7E7] flex-1 w-full p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+              placeholder="50"
+            />
+            <small class="error"></small>
+            </div>
+
+            <select
+              name=""
+              id=""
+              class="border border-[#E7E7E7] px-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+            >
+              <option value="USD">USD</option>
+              <option value="PKR">PKR</option>
+              <option value="">USD</option>
+            </select>
+          </div>
+
+          <div
+            class="card bg-[#E6FDFB] w-full flex gap-4 justify-between rounded-xl p-3 items-center"
+          >
+            <div class="left flex flex-col gap-2">
+              <strong>Offer First Class Free</strong>
+              <span class="text-[#6C717A]"
+                >Attract more students with a trial class</span
+              >
+            </div>
+            <button
+              class="border border-gray-400 rounded-full p-0.5 h-fit min-w-[40px] flex bg-(--primaryColor) justify-end"
+            >
+              <div class="round w-[20px] h-[20px] rounded-full bg-white"></div>
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="form6"
+          class="form-step flex mt-3 hidden flex-col gap-5 items-center w-full min-w-[320px] max-w-full"
+          data-setup="6"
+        >
+          <div class="inputContainer flex flex-col gap-3 flex-wrap w-full p-2">
+            <div class="r1 flex gap-3 justify-between flex-col sm:flex-row">
+              <div class="left flex flex-col gap-2 flex-1 flex-wrap">
+                <label for="">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  readonly
+                  required
+                  placeholder="John@gmail.com"
+                  class="border border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                />
+              </div>
+
+              <div class="right flex flex-col gap-2 flex-1">
+                <label for="">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  readonly
+                  name="fullName"
+                  required
+                  class="border border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                  placeholder="John"
+                />
+              </div>
+            </div>
+            <div class="r2 flex gap-3 justify-between flex-col sm:flex-row">
+              <div class="left flex flex-col gap-2 flex-1 flex-wrap">
+                <label for="">Password</label>
+                <div class="relative form-6-input-container">
+                  <input
+                    required
+                    type="password"
+                    name="password"
+                    placeholder="●●●●●●●●●"
+                    class="password form-6-input password p-3 border border-gray-300 w-full rounded-full pl-5 text-gray-500 text-sm focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                  />
+
+                  <svg
+                    class="eye-btn absolute right-3 top-1/2 -translate-y-1/2 hidden transition-transform duration-500 ease-in-out"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21.544 11.045C21.848 11.4713 22 11.6845 22 12C22 12.3155 21.848 12.5287 21.544 12.955C20.1779 14.8706 16.6892 19 12 19C7.31078 19 3.8221 14.8706 2.45604 12.955C2.15201 12.5287 2 12.3155 2 12C2 11.6845 2.15201 11.4713 2.45604 11.045C3.8221 9.12944 7.31078 5 12 5C16.6892 5 20.1779 9.12944 21.544 11.045Z"
+                      stroke="#287C74"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12Z"
+                      stroke="#287C74"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                  <svg
+                    class="close-eye w-6 absolute right-3 top-1/2 -translate-y-1/2 transition-transform duration-500 ease-in-out"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.439 15.439C20.3636 14.5212 21.0775 13.6091 21.544 12.955C21.848 12.5287 22 12.3155 22 12C22 11.6845 21.848 11.4713 21.544 11.045C20.1779 9.12944 16.6892 5 12 5C11.0922 5 10.2294 5.15476 9.41827 5.41827M6.74742 6.74742C4.73118 8.1072 3.24215 9.94266 2.45604 11.045C2.15201 11.4713 2 11.6845 2 12C2 12.3155 2.15201 12.5287 2.45604 12.955C3.8221 14.8706 7.31078 19 12 19C13.9908 19 15.7651 18.2557 17.2526 17.2526"
+                      stroke="#287C74"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M9.85786 10C9.32783 10.53 9 11.2623 9 12.0711C9 13.6887 10.3113 15 11.9289 15C12.7377 15 13.47 14.6722 14 14.1421"
+                      stroke="#287C74"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M3 3L21 21"
+                      stroke="#287C74"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <small class="error"></small>
+              </div>
+
+              <div
+                class="right flex flex-col gap-2 flex-1 form-6-input-container"
+              >
+                <label for="">Confirm Password</label>
+                <div class="relative">
+                  <input
+                    id="confirm-password"
+                    required
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="●●●●●●●●●"
+                    class="password form-6-input password p-3 border border-gray-300 w-full rounded-full pl-5 text-gray-500 text-sm focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                  />
+
+                  <svg
+                    class="eye-btn absolute right-3 top-1/2 -translate-y-1/2 hidden transition-transform duration-500 ease-in-out"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21.544 11.045C21.848 11.4713 22 11.6845 22 12C22 12.3155 21.848 12.5287 21.544 12.955C20.1779 14.8706 16.6892 19 12 19C7.31078 19 3.8221 14.8706 2.45604 12.955C2.15201 12.5287 2 12.3155 2 12C2 11.6845 2.15201 11.4713 2.45604 11.045C3.8221 9.12944 7.31078 5 12 5C16.6892 5 20.1779 9.12944 21.544 11.045Z"
+                      stroke="#287C74"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12Z"
+                      stroke="#287C74"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+
+                  <svg
+                    class="close-eye w-6 absolute right-3 top-1/2 -translate-y-1/2 transition-transform duration-500 ease-in-out"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.439 15.439C20.3636 14.5212 21.0775 13.6091 21.544 12.955C21.848 12.5287 22 12.3155 22 12C22 11.6845 21.848 11.4713 21.544 11.045C20.1779 9.12944 16.6892 5 12 5C11.0922 5 10.2294 5.15476 9.41827 5.41827M6.74742 6.74742C4.73118 8.1072 3.24215 9.94266 2.45604 11.045C2.15201 11.4713 2 11.6845 2 12C2 12.3155 2.15201 12.5287 2.45604 12.955C3.8221 14.8706 7.31078 19 12 19C13.9908 19 15.7651 18.2557 17.2526 17.2526"
+                      stroke="#287C74"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M9.85786 10C9.32783 10.53 9 11.2623 9 12.0711C9 13.6887 10.3113 15 11.9289 15C12.7377 15 13.47 14.6722 14 14.1421"
+                      stroke="#287C74"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M3 3L21 21"
+                      stroke="#287C74"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <small class="error"></small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <button
+        type="submit"
+        id="submitBtn"
+        class="bg-(--primaryColor) mt-auto p-3 flex gap-3 items-center justify-center text-white rounded-full cursor-pointer min-w-[320px] max-w-[500px] transform-transition duration-300 hover:bg-[#15534d]"
+      >
+      <span id="btnText">
+        Next
+        </span>
+        <div
+          id="loader"
+          class="h-[20px] w-[20px] border-3 border-gray-200 hidden rounded-full border-t-(--primaryColor) animate-spin"
+        ></div>
+      </button>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/build/js/countrySelect.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@26.4.1/build/js/intlTelInput.min.js"></script>
+    <script type="module" src="/src/tutor-register/script.js"></script>
+  </body>
+</html>

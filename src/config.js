@@ -8,13 +8,3 @@ export const firebaseConfig = {
   measurementId: "G-PYQRGPS94S",
 };
 
-
-// export const firebaseConfig = {
-//   apiKey: "AIzaSyABPAiaGy1so4NpQTMht8rTyrHSPtPprIo",
-//   authDomain: "i-learn-c7d88.firebaseapp.com",
-//   projectId: "i-learn-c7d88",
-//   storageBucket: "i-learn-c7d88.firebasestorage.app",
-//   messagingSenderId: "672661824633",
-//   appId: "1:672661824633:web:7e8040aaa2871b4f6e60a8",
-//   measurementId: "G-PYQRGPS94S",
-// };

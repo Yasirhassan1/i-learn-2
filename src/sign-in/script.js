@@ -1,16 +1,24 @@
 // import { users } from "../users.js";
+import { firebaseConfig } from "../config.js";
+import { initializeApp } from "firebase/app";
+import {getAuth, signInWithEmailAndPassword } from "firebase/auth";
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app)
 
+const loader = document.getElementById("loader")
+function displayLoader() {
+  loader.classList.add("block");
+  loader.classList.remove('hidden');
+}
+function hideLoader() {
+  loader.classList.add("hidden");
+  loader.classList.remove('block');
+}
 const form = document.getElementById("form");
 const eyeBtn = document.getElementById("eye-btn");
 const passwordInput = document.getElementById("password");
+const submitBtn = document.getElementById("submitBtn");
 const closeEye = document.getElementById("close-eye");
-
-// function searchUser(email, password) {
-//   const u = users.find(
-//     (cur) => cur.email === email && cur.password === password,
-//   );
-//   return u;
-// }
 
 eyeBtn.addEventListener("click", () => {
   passwordInput.type = "password";
@@ -23,16 +31,51 @@ closeEye.addEventListener("click", () => {
   closeEye.classList.add("hidden");
   eyeBtn.classList.remove("hidden");
 });
-
-form.addEventListener("submit", (event) => {
+let prev = false;
+form.addEventListener("submit", async (event) => {
+  event.preventDefault()
+  submitBtn.disabled = true;
+ if(!prev){
+  displayLoader()
+  
   const email = String(form.elements.email.value);
   const password = String(form.elements.password.value);
-  const user = searchUser(email, password);
-
-  if (user) {
-    form.action = "/index.html";
-  } else {
+  
+  if(await signIn(email, password)){
+    hideLoader()
+       submitBtn.disabled = false
+     window.location.href = "/index.html";
+}
+   else {
+    hideLoader()
+     submitBtn.disabled = false
     alert("Invalid email or password");
-    event.preventDefault();
+    // event.preventDefault();
   }
+}
+  prev = submitBtn.disabled
 });
+
+
+
+async function signIn(email, password) {
+  let signin = false;
+  await signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    console.log(user)
+    signin = true;
+    
+ 
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorMessage)
+    console.log(errorCode)
+
+
+  });
+
+  return signin;
+}

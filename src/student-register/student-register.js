@@ -376,7 +376,7 @@ function syncInputs() {
       validateField(input.name);
     };
     input.addEventListener("input", handler);
-    input.addEventListener("change", handler); // catches <select>
+    input.addEventListener("change", handler);
   });
 
   const step3Inputs = document.querySelectorAll(".form-3-input");

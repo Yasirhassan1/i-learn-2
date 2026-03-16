@@ -29,6 +29,37 @@ const formTitle = document.getElementById("form-title")
 const eyeBtns = Array.from(document.getElementsByClassName("eye-btn"));
 const closeEye = Array.from(document.getElementsByClassName("close-eye"));
 const passwordInputs = Array.from(document.getElementsByClassName("password"));
+const imgPreview = document.getElementById("imagePreview")
+const imgGovt= document.getElementById("imgGovtId")
+const profilePicInput = document.getElementById("profile-pic")
+const govtIdPicInput = document.getElementById("govtId")
+profilePicInput.addEventListener('change', function (event) {
+  const file = event.target.files[0];
+  if (file) {
+    // Create a temporary URL for the file and set it as the image source
+    imgPreview.src = URL.createObjectURL(file);
+    imgPreview.classList.remove("hidden")
+
+    imgPreview.onload = function () {
+      URL.revokeObjectURL(imgPreview.src);
+    }
+  }
+});
+
+govtIdPicInput.addEventListener('change', function (event) {
+  const file = event.target.files[0];
+  if (file) {
+    // Create a temporary URL for the file and set it as the image source
+    imgGovt.src = URL.createObjectURL(file);
+    imgGovt.classList.remove("hidden")
+
+    imgGovt.onload = function () {
+      URL.revokeObjectURL(imgGovt.src);
+    }
+  }
+});
+
+
 
 eyeBtns.forEach((cur, ind) => {
   cur.addEventListener("click", () => {
@@ -469,6 +500,10 @@ function clearError(fieldName) {
 }
 
 function validateField(fieldName) {
+ if(fieldName == 'country'){
+  let countryData = $("#country").countrySelect("getSelectedCountryData");
+formData.country = countryData.name;
+ }
   const rule = validationRules[fieldName];
   if (!rule) return true; // no rule → always passes
 
@@ -690,8 +725,12 @@ function createTutor(email, password){
 document.addEventListener("DOMContentLoaded", () => {
   $("#country").countrySelect();
 });
+
+document.getElementById("country").addEventListener("input", ()=>{
 let countryData = $("#country").countrySelect("getSelectedCountryData");
-// formData.country = countryData.name;
+formData.country = countryData.name;
+})
+
 import intlTelInput from "intl-tel-input";
 import "intl-tel-input/build/css/intlTelInput.css";
 

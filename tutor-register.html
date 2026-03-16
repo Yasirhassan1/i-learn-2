@@ -150,7 +150,7 @@
                   name="phoneNo"
                   required
                   type="tel"
-                  placeholder="92347586"
+                  placeholder="+92347586"
                   class="form-1-input border border-[#E7E7E7] w-full p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
                 />
                 <small class="error"></small>
@@ -244,7 +244,7 @@
                 <input
                   name="country"
                   type="text"
-                  autocomplete ="on"
+                  value="United States"
                   class="border form-1-input w-full border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
                   id="country"
                 />
@@ -573,8 +573,8 @@
           data-setup="3"
         >
           <label
-            for="file1"
-            class="form-3-input-container flex p-4 cursor-pointer items-center flex-col outline outline-[#E7E7E7] rounded-xl focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+            for="profile-pic"
+            class="form-3-input-container relative flex p-4 cursor-pointer items-center flex-col outline outline-[#E7E7E7] rounded-xl focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
           >
             <svg
               width="54"
@@ -599,7 +599,7 @@
             Upload Profile
             <input
               name="profilePic"
-              id="file1"
+             id="profile-pic"
               class="form-3-input w-fit hidden"
               heigth="70"
               width="10"
@@ -607,13 +607,15 @@
               type="file"
             />
             <small class="error"></small>
+              <img src="#" alt="Preview" id="imagePreview"
+            class="object-contain w-full h-full hidden absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
           </label>
           <div class="flex gap-3 justify-between w-full flex-col sm:flex-row">
             <div class="flex flex-col gap-1 flex-1">
               <label for="">Upload Government ID</label>
               <label
-                for="file22"
-                class="form-3-input-container flex cursor-pointer p-4 items-center flex-col outline outline-[#E7E7E7] rounded-xl focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
+                for="govtId"
+                class="form-3-input-container relative flex cursor-pointer p-4 items-center flex-col outline outline-[#E7E7E7] rounded-xl focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
               >
                 <svg
                   width="45"
@@ -661,13 +663,15 @@
                 Upload file
                 <input
                   name="govtId"
-                  id="file22"
+                  id="govtId"
                   class="form-3-input w-fit hidden"
                   width="10"
                   height=""
                   type="file"
                 />
                 <small class="error"></small>
+                <img src="#" alt="Preview" id="imgGovtId"
+            class="object-contain w-full h-full hidden absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
               </label>
             </div>
             <div class="flex flex-col gap-1 flex-1">

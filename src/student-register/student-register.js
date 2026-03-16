@@ -1,7 +1,7 @@
 import { firebaseConfig } from "../config.js";
 
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, updateProfile, createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 const consent1 = document.getElementById("consent11")
 const consent2 = document.getElementById("consent22")
@@ -714,9 +714,14 @@ function createStudent(email, password) {
   createUserWithEmailAndPassword(auth, email, password)
     .then(async (userCredential) => {
       const user = userCredential.user;
+       await updateProfile(user, {
+              displayName: formData.name,
+            });
+
       if(user){
-         localStorage.setItem("userName", formData.name)
+         localStorage.setItem("userName", user.displayName)
       }
+
       const keys = Object.keys(formData);
       const lastKey = keys[keys.length - 1];
       delete formData[lastKey];

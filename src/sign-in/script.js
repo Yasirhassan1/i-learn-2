@@ -63,7 +63,7 @@ async function signIn(email, password) {
   await signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     const user = userCredential.user;
-    console.log(user)
+    localStorage.setItem("userName", user.displayName)
     signin = true;
   })
   .catch((error) => {

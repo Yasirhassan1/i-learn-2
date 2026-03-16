@@ -65,8 +65,6 @@ async function signIn(email, password) {
     const user = userCredential.user;
     console.log(user)
     signin = true;
-    
- 
   })
   .catch((error) => {
     const errorCode = error.code;

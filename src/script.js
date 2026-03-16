@@ -6,8 +6,34 @@ import teachingIcon from "./assets/teaching.svg"
 import studentIcon from "./assets/student.svg"
 import awardIcon from "./assets/award-01.svg"
 import settingIcon from "./assets/account-setting-01.svg"
+import { getAuth, signOut } from "firebase/auth";
+import { firebaseConfig } from "./config.js";
+import { initializeApp } from "firebase/app";
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
 const menuBtn = document.getElementById("menuBtn")
 const closeMenuBtn = document.getElementById("closeMenuBtn")
+const user = Array.from(document.getElementsByClassName("userName"))
+const logOutBtn = document.getElementById("logOutBtn")
+
+logOutBtn.addEventListener("click", async ()=>{
+await signOut(auth).then(() => {
+  localStorage.removeItem("userName")
+  alert("Logout Successfull")
+}).catch((error) => {
+ console.log(error)
+});
+})
+
+
+
+const userName = localStorage.getItem("userName") || "Anonymous"
+
+user.forEach((cur, ind)=>{
+  cur.innerText = userName;
+})
 
 menuBtn.addEventListener("click", ()=>{
   openMenu()

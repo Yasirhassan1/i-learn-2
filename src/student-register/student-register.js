@@ -708,15 +708,19 @@ function hideLoader() {
   loader.classList.add("hidden");
   loader.classList.remove('block');
 }
+
 function createStudent(email, password) {
   displayLoader();
   createUserWithEmailAndPassword(auth, email, password)
     .then(async (userCredential) => {
       const user = userCredential.user;
+      if(user){
+         localStorage.setItem("userName", formData.name)
+      }
       const keys = Object.keys(formData);
       const lastKey = keys[keys.length - 1];
       delete formData[lastKey];
-      console.log(formData)
+      
       if (await storeStudentDataInFirestore()) {
         alert("Student data stored successfully")
         window.location = "/index.html"

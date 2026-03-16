@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/src/tutor-register/style.css" />
     <link rel="stylesheet" href="/globalCSS/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+     <link rel="stylesheet" href="/build/css/countrySelect.css">
   </head>
   <body class="bg-[#F5F5F5] flex justify-center items-center p-3 min-h-screen">
     <section
@@ -227,9 +228,7 @@
               <div
                 class="right flex flex-col gap-2 flex-1 form-1-input-container"
               >
-                <label for=""
-                  >Country <span class="text-(--primaryColor)">*</span></label
-                >
+                <label for="">Country <span class="text-(--primaryColor)">*</span></label>
                 <!-- <select
               id="country"
                 name="country"
@@ -245,9 +244,9 @@
                 <input
                   name="country"
                   type="text"
+                  autocomplete ="on"
                   class="border form-1-input w-full border-[#E7E7E7] p-3 rounded-full focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor)"
-                  id="countryy"
-                  placeholder="Pakistan"
+                  id="country"
                 />
                 <small class="error"></small>
               </div>
@@ -457,7 +456,7 @@
 
               <div class="r2r3 flex gap-3 justify-between flex-col sm:flex-row">
                 <div class="left flex flex-col gap-2 flex-1">
-                  <label for="">Upload Teaching Certificate (optional))</label>
+                  <label for="">Upload Teaching Certificate (optional)</label>
                   <label
                     for="file4"
                     class="form-2-input-container flex cursor-pointer p-4 w-full items-center justify-center flex-col outline outline-[#E7E7E7] rounded-xl focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor) flex-1"
@@ -1266,9 +1265,9 @@
       </button>
     </section>
 
-    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="module" src="/build/js/countrySelect.min.js"></script>
-    <script  src="https://cdn.jsdelivr.net/npm/intl-tel-input@26.4.1/build/js/intlTelInput.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/build/js/countrySelect.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@26.4.1/build/js/intlTelInput.min.js"></script> -->
     <script type="module" src="/src/tutor-register/script.js"></script>
   </body>
 </html>

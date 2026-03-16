@@ -1,5 +1,3 @@
-console.log("hello world")
-
 import { firebaseConfig } from "../config.js";
 
 import { initializeApp } from "firebase/app";

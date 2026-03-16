@@ -687,18 +687,23 @@ function createTutor(email, password){
 }
 
 
-$("#countryy").countrySelect();
-let countryData = $("#countryy").countrySelect("getSelectedCountryData");
-formData.country = countryData.name;
-
+document.addEventListener("DOMContentLoaded", () => {
+  $("#country").countrySelect();
+});
+let countryData = $("#country").countrySelect("getSelectedCountryData");
+// formData.country = countryData.name;
+import intlTelInput from "intl-tel-input";
+import "intl-tel-input/build/css/intlTelInput.css";
 
 const phoneInput = document.querySelector("#phonee");
+
 if (phoneInput) {
-  window.intlTelInput(phoneInput, {
+  intlTelInput(phoneInput, {
     loadUtils: () =>
-      import("https://cdn.jsdelivr.net/npm/intl-tel-input@26.4.1/build/js/utils.js"),
+      import("intl-tel-input/build/js/utils.js"),
   });
 }
+
 
 
 

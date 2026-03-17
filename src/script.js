@@ -56,21 +56,22 @@ const navItems = [
     icon: assignmentIcon,
     title: "Learning Hub",
     arrowIcon: arrowIcon,
-    subLinksArr: ["link1", "link2", "link3", "link4", "link5"],
+    subLinksArr: ["Assignment Help", "Superpower", "Interactive lessons"],
+
   },
 
   {
     icon: libraryIcon,
     title: "Study Materials",
     arrowIcon: arrowIcon,
-    subLinksArr: ["link4", "link5", "link6"],
+    subLinksArr: ["Little Learners", "Worksheets", "Visual Learning", "Language Worksheets", "Practice Exercises", "Study Materials"],
   },
 
   {
     icon: quizIcon,
     title: "Gamification",
     arrowIcon: arrowIcon,
-    subLinksArr: ["link5"],
+    subLinksArr: ["Games"],
   },
 
   {
@@ -122,9 +123,13 @@ function initializeSidebar() {
                   alt=""
                 />
               </div>
+              
              
-           <div class="subLinks flex flex-col gap-2 w-full pl-5">
+             <div class="flex gap-2 w-full ml-2">
+             <div class="h-[${element.height}] w-[2px] bg-gradient-to-b from-[#D9E8E7] via-[#80B2AD] to-[#D9E8E7] rounded-full"></div>
+           <div class="subLinks flex flex-col gap-2 w-full pl-5 text-[#525252]">
   ${element.subLinksArr.map((subLink) => `<a href="">${subLink}</a>`).join("")}
+</div>
 </div>
 
   `;

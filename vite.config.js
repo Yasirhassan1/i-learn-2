@@ -15,7 +15,6 @@ export default defineConfig({
         terms: resolve(__dirname, 'terms-condition.html'),
         forgetPassword: resolve(__dirname, 'forget-password.html'),
         welcome: resolve(__dirname, 'welcome.html'),
-
       }
     }
   }

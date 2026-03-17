@@ -14,6 +14,7 @@ export default defineConfig({
         complete: resolve(__dirname, 'registration-complete.html'),
         terms: resolve(__dirname, 'terms-condition.html'),
         forgetPassword: resolve(__dirname, 'forget-password.html'),
+        welcome: resolve(__dirname, 'welcome.html'),
 
       }
     }

@@ -743,7 +743,7 @@ function createStudent(email, password) {
       
       if (await storeStudentDataInFirestore()) {
         alert("Student data stored successfully")
-        window.location = "/index.html"
+        window.location = "/welcome.html"
         hideLoader();
       }
       else {

@@ -1,6 +1,6 @@
 import { firebaseConfig } from "../config.js";
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, updateProfile, createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -699,9 +699,13 @@ function createTutor(email, password){
   createUserWithEmailAndPassword(auth, email, password)
   .then(async (userCredential) => {
     const user = userCredential.user;
-    // const keys = Object.keys(formData);
-    // const lastKey = keys[keys.length - 1];
-    // delete formData[lastKey]; 
+      await updateProfile(user, {
+                  displayName: formData.name,
+                });
+    
+          if(user){
+             localStorage.setItem("userName", user.displayName)
+          }
     console.log(formData)
     if(await storeTutorDataInFirestore()){
       alert("Tutor data stored successfully")

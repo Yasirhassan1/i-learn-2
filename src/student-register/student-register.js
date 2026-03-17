@@ -31,17 +31,30 @@ const profilePicInput = document.getElementById("profile-pic")
 const idCardPicInput = document.getElementById("id-card")
 const imgPreview = document.getElementById("imagePreview")
 const idCardPreview = document.getElementById("id-card-img")
+let base64Image = ""
 
 profilePicInput.addEventListener('change', function (event) {
   const file = event.target.files[0];
   if (file) {
     // Create a temporary URL for the file and set it as the image source
     imgPreview.src = URL.createObjectURL(file);
+      const reader = new FileReader();
+
+    reader.onload = (event) => {
+        // Convert to Base64 string
+         base64Image = event.target.result;
+         console.log(base64Image)
+
+        // Store in localStorage
+     
+    };
+    reader.readAsDataURL(file);
+
     imgPreview.classList.remove("hidden")
 
-    imgPreview.onload = function () {
-      URL.revokeObjectURL(imgPreview.src);
-    }
+    // imgPreview.onload = function () {
+    //   URL.revokeObjectURL(imgPreview.src);
+    // }
   }
 });
 
@@ -715,11 +728,13 @@ function createStudent(email, password) {
     .then(async (userCredential) => {
       const user = userCredential.user;
        await updateProfile(user, {
-              displayName: formData.name,
+              displayName: formData.name
             });
 
       if(user){
          localStorage.setItem("userName", user.displayName)
+         localStorage.setItem("profilePic", base64Image)
+         
       }
 
       const keys = Object.keys(formData);

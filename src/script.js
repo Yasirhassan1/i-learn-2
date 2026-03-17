@@ -6,6 +6,7 @@ import teachingIcon from "./assets/teaching.svg"
 import studentIcon from "./assets/student.svg"
 import awardIcon from "./assets/award-01.svg"
 import settingIcon from "./assets/account-setting-01.svg"
+import defaultProfilePic from "./assets/user-circle.svg"
 import { getAuth, signOut } from "firebase/auth";
 import { firebaseConfig } from "./config.js";
 import { initializeApp } from "firebase/app";
@@ -17,10 +18,12 @@ const menuBtn = document.getElementById("menuBtn")
 const closeMenuBtn = document.getElementById("closeMenuBtn")
 const user = Array.from(document.getElementsByClassName("userName"))
 const logOutBtn = document.getElementById("logOutBtn")
+const profilePictures = Array.from(document.getElementsByClassName("profile-picture"))
 
 logOutBtn.addEventListener("click", async ()=>{
 await signOut(auth).then(() => {
   localStorage.removeItem("userName")
+  localStorage.removeItem("profilePic")
   alert("Logout Successfull")
 }).catch((error) => {
  console.log(error)
@@ -30,9 +33,14 @@ await signOut(auth).then(() => {
 
 
 const userName = localStorage.getItem("userName") || "Anonymous"
+const url = localStorage.getItem("profilePic") || defaultProfilePic;
 
-user.forEach((cur, ind)=>{
+user.forEach((cur)=>{
   cur.innerText = userName;
+})
+
+profilePictures.forEach((cur)=>{
+  cur.src = url;
 })
 
 menuBtn.addEventListener("click", ()=>{

@@ -66,6 +66,8 @@ idCardPicInput.addEventListener("change", (event) => {
 })
 
 let formData = {
+  uid: "",
+  createdAt: "",
   name: "",
   dob: "",
   keystage: "",
@@ -716,6 +718,8 @@ function createStudent(email, password) {
   createUserWithEmailAndPassword(auth, email, password)
     .then(async (userCredential) => {
       const user = userCredential.user;
+      formData.uid = user.uid;
+      formData.createdAt = new Date();
        await updateProfile(user, {
               displayName: formData.name
             });

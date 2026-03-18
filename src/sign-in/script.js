@@ -1,4 +1,3 @@
-// import { users } from "../users.js";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../auth.js";
 

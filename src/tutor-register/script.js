@@ -122,6 +122,8 @@ const forms = [
 ]
 
 const formData = {
+  uid: "",
+  createdAt: "",
     fullName: "",
     email: "",
     dob: "",
@@ -681,6 +683,8 @@ function createTutor(email, password){
   createUserWithEmailAndPassword(auth, email, password)
   .then(async (userCredential) => {
     const user = userCredential.user;
+     formData.uid = user.uid;
+      formData.createdAt = new Date();
       await updateProfile(user, {
                   displayName: formData.name,
                 });

@@ -1,17 +1,23 @@
-// import { users } from "../users.js";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../auth.js";
 const form = document.getElementById("form");
-function searchEmail(email) {
-  const e = users.find((cur, ind) => cur.email === email);
-  return e;
-}
-form.addEventListener("submit", (event) => {
-  const email = String(form.elements.email.value);
-  const isEmail = searchEmail(email);
 
-  if (isEmail) {
-    form.action = "/otp.html";
-  } else {
-    alert("Email not Exist");
-    event.preventDefault();
-  }
+form.addEventListener("submit", async (event) => {
+  event.preventDefault()
+ 
+  const email = String(form.elements.email.value);
+   console.log(auth)
+  console.log(email)
+   await sendPasswordResetEmail(auth, email)
+  .then(() => {
+   alert("Email Sent successfully")
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorMessage)
+  });
+
+
+
 });

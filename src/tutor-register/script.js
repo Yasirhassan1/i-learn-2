@@ -1,12 +1,6 @@
-import { firebaseConfig } from "../config.js";
-import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, updateProfile, createUserWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-
+import {updateProfile, createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../auth.js";
+import { storeDataInFirestore } from "../firestore.js";
 const bar = document.getElementById("acutal-bar")
 const submitBtn = document.getElementById("submitBtn")
 const backBtn = document.getElementById("back-btn")
@@ -621,7 +615,6 @@ function previousLable(){
     }
 }
 
-console.log(submitBtn)
 
 function loadNextForm(){
   scrollY()
@@ -682,17 +675,6 @@ function hideLoader(){
   loader.classList.remove('block');
 }
 
-async function storeTutorDataInFirestore(){
-  try {
-  const docRef = await addDoc(collection(db, "tutors" ), formData);
-  console.log("Document written with ID: ", docRef.id) ;
-  return true;
-} catch (e) {
-  console.error("Error adding document: ", e);
-  return false;
-}
-}
-
 
 function createTutor(email, password){
     displayLoader();
@@ -707,7 +689,7 @@ function createTutor(email, password){
              localStorage.setItem("userName", user.displayName)
           }
     console.log(formData)
-    if(await storeTutorDataInFirestore()){
+    if(await storeDataInFirestore("tutors", formData)){
       alert("Tutor data stored successfully")
       window.location = "/index.html"
       hideLoader();

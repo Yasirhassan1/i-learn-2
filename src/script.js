@@ -1,3 +1,18 @@
+import {onAuthStateChanged } from "firebase/auth";
+import { auth } from "./auth.js";
+
+onAuthStateChanged(auth, (user)=>{
+  if(!user){
+    window.location = "/sign-in.html"
+  }
+  else{
+    document.body.classList.add("block")
+    document.body.classList.remove("hidden")
+  }
+})
+
+import {signOut} from "firebase/auth";
+
 import arrowIcon from "./assets/arrow1.svg";
 import assignmentIcon from "./assets/assignments.svg"
 import libraryIcon from "./assets/library.svg"
@@ -7,12 +22,9 @@ import studentIcon from "./assets/student.svg"
 import awardIcon from "./assets/award-01.svg"
 import settingIcon from "./assets/account-setting-01.svg"
 import defaultProfilePic from "./assets/user-circle.svg"
-import { getAuth, signOut } from "firebase/auth";
-import { firebaseConfig } from "./config.js";
-import { initializeApp } from "firebase/app";
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+
+
 
 const menuBtn = document.getElementById("menuBtn")
 const closeMenuBtn = document.getElementById("closeMenuBtn")

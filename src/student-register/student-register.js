@@ -1,8 +1,8 @@
-import { firebaseConfig } from "../config.js";
+import {updateProfile, createUserWithEmailAndPassword } from "firebase/auth";
 
-import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, updateProfile, createUserWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { auth } from "../auth.js";
+import { storeDataInFirestore } from "../firestore.js";
+
 const consent1 = document.getElementById("consent11")
 const consent2 = document.getElementById("consent22")
 const consent3 = document.getElementById("consent33")
@@ -23,9 +23,7 @@ const learningPreferenceBtns = [
   { id: 6, title: "Auditory", borderColor: "#FF9F01", selected: false },
   { id: 7, title: "Kinesthetic", borderColor: "#A168BE", selected: false },
 ];
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+
 
 const profilePicInput = document.getElementById("profile-pic")
 const idCardPicInput = document.getElementById("id-card")
@@ -41,20 +39,18 @@ profilePicInput.addEventListener('change', function (event) {
       const reader = new FileReader();
 
     reader.onload = (event) => {
-        // Convert to Base64 string
          base64Image = event.target.result;
-         console.log(base64Image)
 
-        // Store in localStorage
+       
      
     };
     reader.readAsDataURL(file);
 
     imgPreview.classList.remove("hidden")
 
-    // imgPreview.onload = function () {
-    //   URL.revokeObjectURL(imgPreview.src);
-    // }
+    imgPreview.onload = function () {
+      URL.revokeObjectURL(imgPreview.src);
+    }
   }
 });
 
@@ -114,50 +110,6 @@ const stepFields = {
   3: ["profile-pic", "id-card", "card-no", "card", "expire-date", "cvv", "consent1", "consent2", "consent3"],
   4: ["email", "accountName", "password", "confirm-password"],
 };
-
-
-
-
-consent1.addEventListener("click", () => {
-  formData.consent1 = consent1.checked;
-  validateField("consent1")
-})
-
-consent2.addEventListener("click", () => {
-  formData.consent2 = consent2.checked;
-  validateField("consent2")
-
-})
-consent3.addEventListener("click", () => {
-  formData.consent3 = consent3.checked;
-  validateField("consent3")
-
-})
-
-
-const eyeBtns = Array.from(document.getElementsByClassName("eye-btn"));
-const closeEye = Array.from(document.getElementsByClassName("close-eye"));
-const passwordInputs = Array.from(document.getElementsByClassName("password"));
-
-eyeBtns.forEach((cur, ind) => {
-  cur.addEventListener("click", () => {
-    passwordInputs[ind].type = "password";
-    cur.classList.remove("block");
-    cur.classList.add("hidden");
-    closeEye[ind].classList.remove("hidden");
-    closeEye[ind].classList.add("block");
-  });
-});
-
-closeEye.forEach((cur, ind) => {
-  cur.addEventListener("click", () => {
-    passwordInputs[ind].type = "text";
-    cur.classList.remove("block");
-    cur.classList.add("hidden");
-    eyeBtns[ind].classList.remove("hidden");
-    eyeBtns[ind].classList.add("block");
-  });
-});
 
 const validationRules = {
   name: {
@@ -325,6 +277,50 @@ const validationRules = {
     },
   },
 };
+
+
+
+consent1.addEventListener("click", () => {
+  formData.consent1 = consent1.checked;
+  validateField("consent1")
+})
+
+consent2.addEventListener("click", () => {
+  formData.consent2 = consent2.checked;
+  validateField("consent2")
+
+})
+consent3.addEventListener("click", () => {
+  formData.consent3 = consent3.checked;
+  validateField("consent3")
+
+})
+
+
+const eyeBtns = Array.from(document.getElementsByClassName("eye-btn"));
+const closeEye = Array.from(document.getElementsByClassName("close-eye"));
+const passwordInputs = Array.from(document.getElementsByClassName("password"));
+
+eyeBtns.forEach((cur, ind) => {
+  cur.addEventListener("click", () => {
+    passwordInputs[ind].type = "password";
+    cur.classList.remove("block");
+    cur.classList.add("hidden");
+    closeEye[ind].classList.remove("hidden");
+    closeEye[ind].classList.add("block");
+  });
+});
+
+closeEye.forEach((cur, ind) => {
+  cur.addEventListener("click", () => {
+    passwordInputs[ind].type = "text";
+    cur.classList.remove("block");
+    cur.classList.add("hidden");
+    eyeBtns[ind].classList.remove("hidden");
+    eyeBtns[ind].classList.add("block");
+  });
+});
+
 
 
 
@@ -703,16 +699,7 @@ learningBoxes.forEach((box, ind) => {
   });
 });
 
-async function storeStudentDataInFirestore() {
-  try {
-    const docRef = await addDoc(collection(db, "students"), formData);
-    console.log("Document written with ID: ", docRef.id);
-    return true;
-  } catch (e) {
-    console.error("Error adding document: ", e);
-    return false;
-  }
-}
+
 function displayLoader() {
   loader.classList.add("block");
   loader.classList.remove('hidden');
@@ -721,6 +708,8 @@ function hideLoader() {
   loader.classList.add("hidden");
   loader.classList.remove('block');
 }
+
+
 
 function createStudent(email, password) {
   displayLoader();
@@ -741,7 +730,7 @@ function createStudent(email, password) {
       const lastKey = keys[keys.length - 1];
       delete formData[lastKey];
       
-      if (await storeStudentDataInFirestore()) {
+      if (await storeDataInFirestore("students", formData)) {
         alert("Student data stored successfully")
         window.location = "/welcome.html"
         hideLoader();

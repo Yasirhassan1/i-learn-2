@@ -1,9 +1,6 @@
 // import { users } from "../users.js";
-import { firebaseConfig } from "../config.js";
-import { initializeApp } from "firebase/app";
-import {getAuth, signInWithEmailAndPassword } from "firebase/auth";
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app)
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../auth.js";
 
 const loader = document.getElementById("loader")
 function displayLoader() {
@@ -44,7 +41,8 @@ form.addEventListener("submit", async (event) => {
   if(await signIn(email, password)){
     hideLoader()
        submitBtn.disabled = false
-     window.location.href = "/index.html";
+     window.location = "/index.html";
+
 }
    else {
     hideLoader()

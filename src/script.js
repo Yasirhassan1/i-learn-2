@@ -30,6 +30,7 @@ const menuBtn = document.getElementById("menuBtn")
 const closeMenuBtn = document.getElementById("closeMenuBtn")
 const user = Array.from(document.getElementsByClassName("userName"))
 const logOutBtn = document.getElementById("logOutBtn")
+const nav = document.getElementById("nav-container")
 const profilePictures = Array.from(document.getElementsByClassName("profile-picture"))
 
 logOutBtn.addEventListener("click", async ()=>{
@@ -259,6 +260,19 @@ function openMenu() {
     menuOpen = true;
   }
 }
+function scrollTop() {
+  nav.scroll({
+    top: -1,
+    behavior: "smooth",
+  });
+}
+
+function scrollBottom() {
+  nav.scroll({
+    top: 150,
+    behavior: "smooth",
+  });
+}
 function flipArrow(i) {
   navArrowOpen[i] = !navArrowOpen[i];
   if (navArrowOpen[i]) {
@@ -271,20 +285,43 @@ function flipArrow(i) {
     return false;
   }
 }
+let prevNavItemIndex = 0
+let prevNavItemHeight = 0
+let firstClick = false;
 
 for (let i = 0; i < navCollection.length; i++) {
   navCollection[i].addEventListener("click", () => {
+    if(i<4){
+      scrollTop()
+    }
+    else{
+      scrollBottom()
+    }
+    
     let num = subLinks[i].childElementCount === 1 ? 45 : 36;
     const height = String(
       subLinks[i].childElementCount * num +
         navCollection[i].firstElementChild.offsetHeight,
     );
     if (flipArrow(i)) {
+      
       navCollection[i].classList.add(`min-h-[${height}px]`);
       navCollection[i].classList.remove("min-h-[43px]", "overflow-y-hidden");
+      
+    
     } else {
       navCollection[i].classList.remove(`min-h-[${height}px]`);
       navCollection[i].classList.add("min-h-[43px]", "overflow-y-hidden");
     }
+
+    if(firstClick && prevNavItemIndex !== i && navArrowOpen[prevNavItemIndex]){
+  flipArrow(prevNavItemIndex)
+      navCollection[prevNavItemIndex].classList.remove(`min-h-[${prevNavItemHeight}px]`);
+      navCollection[prevNavItemIndex].classList.add("min-h-[43px]", "overflow-y-hidden");
+}
+ prevNavItemIndex = i;
+ prevNavItemHeight = height;
+firstClick = true;
+      
   });
 }

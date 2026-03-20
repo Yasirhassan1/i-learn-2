@@ -710,21 +710,30 @@ function hideLoader() {
   loader.classList.add("hidden");
   loader.classList.remove('block');
 }
+const createBtn = document.getElementById("createBtn")
+function waitFor(ms){
+setTimeout(()=>{
+ hideLoader()
+ createBtn.disabled = false;
+createBtn.style.backgroundColor = "#287C74"
+  }, ms)
+}
 
 
 
-function createStudent(email, password) {
+async function createStudent(email, password) {
   displayLoader();
-  createUserWithEmailAndPassword(auth, email, password)
-    .then(async (userCredential) => {
-      const user = userCredential.user;
-      formData.uid = user.uid;
+  createBtn.style.backgroundColor = "#72a8a3"
+  try{
+    const userCredentail = await createUserWithEmailAndPassword(auth, email, password)
+     const user = userCredentail.user;  
+    formData.uid = user.uid;
       formData.createdAt = new Date();
        await updateProfile(user, {
-              displayName: formData.name
-            });
+          displayName: formData.name
+      });
 
-      if(user){
+          if(user){
          localStorage.setItem("userName", user.displayName)
          localStorage.setItem("profilePic", base64Image)
          
@@ -733,8 +742,8 @@ function createStudent(email, password) {
       const keys = Object.keys(formData);
       const lastKey = keys[keys.length - 1];
       delete formData[lastKey];
-      
-      if (await storeDataInFirestore("students", formData)) {
+
+        if (await storeDataInFirestore("students", formData)) {
         alert("Student data stored successfully")
         window.location = "/welcome.html"
         hideLoader();
@@ -743,14 +752,18 @@ function createStudent(email, password) {
         alert("something went wrong")
       }
 
+  }
 
-    })
-    .catch((error) => {
-      hideLoader();
-      const errorMessage = error.message;
+  catch(err){
+     hideLoader();
+      const errorMessage = err.message;
       console.log(errorMessage)
-    });
+  }
+
+  waitFor(2000)
+ 
 }
+
 
 syncInputs();
 

@@ -22,25 +22,28 @@
         action=""
         class="flex flex-col gap-3 w-full h-full min-w-[320px] max-w-[450px] justify-between"
       >
-        <div class="flex flex-col gap-3">
+        <div class="flex flex-col gap-3 form-1-input-container">
           <label for="" class="ml-2">Email</label>
           <input
             type="email"
-            required
+            id="email"
+            
             placeholder="john@gmail.com"
             name="email"
             class="p-3 border border-gray-300 focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor) rounded-full pl-5"
           />
+           <small class="text-red-500 ml-3 error"></small>
           <label for="" class="ml-2 pt-2">Password</label>
-          <div class="relative">
+          <div class="relative form-1-input-container">
             <input
               id="password"
-              required
+              
               type="password"
               name="password"
               placeholder="●●●●●●●●●"
               class="p-3 border border-gray-300 focus:outline-2 focus:outline-(--primaryColor) hover:outline hover:outline-(--primaryColor) w-full rounded-full pl-5 text-gray-500 text-sm"
             />
+           
             
            
 
@@ -67,6 +70,7 @@
                   <path d="M3 3L21 21" stroke="#287C74" stroke-width="1.5" stroke-linecap="round"
                     stroke-linejoin="round" />
                 </svg>
+                 <small class="text-red-500 ml-3 error absolute -bottom-7.5 left-1"></small>
           </div>
 
           <a
@@ -74,10 +78,11 @@
             href="/forget-password.html"
             >Forget Password?</a
           >
+         
         </div>
         <div class="flex flex-col gap-3 items-center">
           <button id="submitBtn"
-            class="bg-(--primaryColor) flex gap-3 justify-center items-center p-3 text-white rounded-full w-full cursor-pointer transform-transition duration-100 hover:bg-green-400"
+            class="bg-(--primaryColor) flex gap-3 justify-center items-center p-3 text-white rounded-full w-full cursor-pointer transform-transition duration-100 hover:bg-[#196b63]"
           >
             Sign in
               <div id="loader"

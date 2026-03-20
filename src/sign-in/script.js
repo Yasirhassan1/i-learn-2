@@ -27,50 +27,139 @@ closeEye.addEventListener("click", () => {
   closeEye.classList.add("hidden");
   eyeBtn.classList.remove("hidden");
 });
-let prev = false;
+const email = document.getElementById("email")
+const password = document.getElementById("password")
+
+
+const formData = {
+  email: "",
+  password: ""
+}
+
+const validationRules = {
+  "email": {
+    validation(v){
+      if(!v){
+        return "Email is required"
+      }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()))
+        return "Enter a valid email address";
+      return null
+    }
+  },
+  "password":{
+    validation(v){
+      if(!v){
+        return "Password is required"
+      }
+      if(v.length <8){
+        return "Password must be at least 8 characters"
+      }
+      return null
+    }
+  }
+}
+
+function isAllInputFieldsValid(){
+ let isAllValid = true;
+  for(const field of Object.keys(formData)){
+    if(!validateField(field)){
+       isAllValid = false
+    }
+  }
+
+  return isAllValid;
+}
+
+function waitFor(ms){
+setTimeout(()=>{
+ hideLoader()
+ submitBtn.disabled = false;
+submitBtn.style.backgroundColor = "#287C74"
+  }, ms)
+}
 form.addEventListener("submit", async (event) => {
   event.preventDefault()
   submitBtn.disabled = true;
- if(!prev){
+
+  const isAllValid = isAllInputFieldsValid()
+ if(!isAllValid){
+  return 
+ }
+  submitBtn.style.backgroundColor = "#72a8a3"
   displayLoader()
-  
   const email = String(form.elements.email.value);
   const password = String(form.elements.password.value);
-  
-  if(await signIn(email, password)){
-    hideLoader()
-       submitBtn.disabled = false
-     window.location = "/index.html";
+
+  if(await signIn(email, password)){ 
+    window.location = "/index.html";
 
 }
    else {
-    hideLoader()
-     submitBtn.disabled = false
+   
     alert("Invalid email or password");
-    // event.preventDefault();
   }
-}
-  prev = submitBtn.disabled
+
+ waitFor(2000)
+
 });
 
 
 
-async function signIn(email, password) {
-  let signin = false;
-  await signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    localStorage.setItem("userName", user.displayName)
-    signin = true;
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
+function getErrorEl(fieldName) {
+  // Try by name attribute first
+  const input = document.querySelector(
+    `[name="${fieldName}"], #${CSS.escape(fieldName)}`,
+  );
+  if (!input) return null;
+  let container = input.closest(
+    ".form-1-input-container, .left, .right, label",
+  );
+  if (!container) container = input.parentElement;
+  return container ? container.querySelector("small.error") : null;
+}
+
+function validateField(name){
+const v = validationRules[name].validation(formData[name])
+ const e =  getErrorEl(name)
+if(v){
+  e.innerText = v;
+  return false;
+}
+else{
+  e.innerText = ""
+  return true
+  
+}
+ 
+}
+
+
+email.addEventListener("input", (e)=>{
+formData.email = String(e.target.value);
+validateField(email.name)
+})
+password.addEventListener("input", (e)=>{
+formData.password = String(e.target.value);
+validateField(password.name)
+})
+
+
+async function signIn(email, password){
+    let signin = false;
+    try{
+       const userCredentail =  await signInWithEmailAndPassword(auth, email, password)
+       const user = userCredentail.user;
+       localStorage.setItem("userName", user.displayName)
+      signin = true;
+    }
+    catch(err){
+     const errorCode = err.code;
+    const errorMessage = err.message;
     console.log(errorMessage)
     console.log(errorCode)
+    }
 
-
-  });
-
-  return signin;
+      return signin;
+ 
 }

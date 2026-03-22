@@ -1,16 +1,16 @@
-// import {onAuthStateChanged } from "firebase/auth";
-// import { auth } from "./auth.js";
+import {onAuthStateChanged } from "firebase/auth";
+import { auth } from "./auth.js";
 
-// onAuthStateChanged(auth, (user)=>{
-//   if(!user){
-//     window.location = "/sign-in.html"
-//   }
-//   else{
-//     document.body.classList.replace("hidden", "block");
-//   }
-// })
+onAuthStateChanged(auth, (user)=>{
+  if(!user){
+    window.location = "/sign-in.html"
+  }
+  else{
+    document.body.classList.replace("hidden", "block");
+  }
+})
 
- document.body.classList.replace("hidden", "block");
+//  document.body.classList.replace("hidden", "block");
 
 import {signOut} from "firebase/auth";
 

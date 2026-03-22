@@ -92,7 +92,7 @@ form.addEventListener("submit", async (event) => {
   const password = String(form.elements.password.value);
 
   if(await signIn(email, password)){ 
-    window.location = "/index.html";
+    window.location = "/";
 
 }
    else {

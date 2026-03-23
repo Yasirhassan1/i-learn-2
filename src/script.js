@@ -1,30 +1,33 @@
-import {onAuthStateChanged } from "firebase/auth";
-import { auth } from "./auth.js";
+// import {onAuthStateChanged } from "firebase/auth";
+// import { auth } from "./auth.js";
 
-onAuthStateChanged(auth, (user)=>{
-  if(!user){
-    window.location = "/sign-in.html"
-  }
-  else{
-    document.body.classList.replace("hidden", "block");
-  }
-})
+// onAuthStateChanged(auth, (user)=>{
+//   if(!user){
+//     window.location = "/sign-in.html"
+//   }
+//   else{
+//     document.body.classList.replace("hidden", "block");
+//   }
+// })
+ document.body.classList.replace("hidden", "block");
 
-//  document.body.classList.replace("hidden", "block");
+import card from "../components/card.js";
+import card2 from "../components/card2.js";
+import card3 from "../components/card3.js"
+import card4 from "../components/card4.js";
+import card5 from "../components/card5.js"
+
+
+import renderCards from "../components/CardList.js";
+import { data as data2 } from "./dashboard/interactive-lessons.js";
+import {data as data3}  from "./dashboard/little-learners.js"
+import {data as data4} from "./dashboard/worksheet.js"
+import {data as data5} from "./dashboard/visual-learning.js"
+import {data as data6} from "./dashboard/language-worksheets.js"
+
+
 
 import {signOut} from "firebase/auth";
-
-import arrowIcon from "./assets/arrow1.svg";
-import assignmentIcon from "./assets/assignments.svg"
-import libraryIcon from "./assets/library.svg"
-import quizIcon from "./assets/quiz-02.svg"
-import teachingIcon from "./assets/teaching.svg"
-import studentIcon from "./assets/student.svg"
-import awardIcon from "./assets/award-01.svg"
-import settingIcon from "./assets/account-setting-01.svg"
-import defaultProfilePic from "./assets/user-circle.svg"
-
-
 
 
 const menuBtn = document.getElementById("menuBtn")
@@ -33,6 +36,20 @@ const user = Array.from(document.getElementsByClassName("userName"))
 const logOutBtn = document.getElementById("logOutBtn")
 const nav = document.getElementById("nav-container")
 const profilePictures = Array.from(document.getElementsByClassName("profile-picture"))
+const redChatBtn = document.getElementById("red-chat-btn");
+const yellowChatBtn = document.getElementById("yellow-chat-btn")
+const redChatboxCloseBtn = document.getElementById("redChatboxCloseBtn")
+const yellowChatboxCloseBtn = document.getElementById("yellowChatboxCloseBtn")
+const purpleChatboxCloseBtn = document.getElementById("purpleChatboxCloseBtn")
+const redChatBox = document.getElementById("red-chat-box")
+const yellowChatBox = document.getElementById("yellow-chat-box")
+
+const chatboxBtns = Array.from(document.getElementsByClassName("chatboxBtn"))
+const chatBoxes = Array.from(document.getElementsByClassName("chatbox"))
+const bgOverlay = document.getElementById("overlay")
+const menuBar = document.getElementById("menu-bar");
+const htmlCollection1 = document.getElementsByClassName("nav-item");
+const htmlCollection2 = document.getElementsByClassName("nav-arrow");
 
 logOutBtn.addEventListener("click", async ()=>{
 
@@ -68,236 +85,8 @@ closeMenuBtn.addEventListener("click", ()=>{
   openMenu()
 })
 
-
-// const navItems = [
-//   {
-//     icon: assignmentIcon,
-//     title: "Learning Hub",
-//     arrowIcon: arrowIcon,
-//     subLinksArr: ["Assignment Help", "Superpower", "Interactive Lessons"],
-   
-
-//   },
-
-//     {
-//     icon: assignmentIcon,
-//     title: "Learning Hub",
-//     arrowIcon: arrowIcon,
-//     subLinksArr: ["Assignment Help", "Superpower", "Interactive Lessons"],
-   
-
-//   },
-
-//   {
-//     icon: libraryIcon,
-//     title: "Study Materials",
-//     arrowIcon: arrowIcon,
-//     subLinksArr: ["Little Learners", "Worksheets", "Visual Learning", "Language Worksheets", "Practice Exercises", "Study Materials"],
-//   },
-
-//   {
-//     icon: quizIcon,
-//     title: "Gamification",
-//     arrowIcon: arrowIcon,
-//     subLinksArr: ["Games"],
-//   },
-
-//   {
-//     icon: teachingIcon,
-//     title: "Live Tutoring",
-//     arrowIcon: arrowIcon,
-//     subLinksArr: ["link5", "link5", "link6"],
-//   },
-
-//   {
-//     icon: studentIcon,
-//     title: "Student Tools",
-//     arrowIcon: arrowIcon,
-//     subLinksArr: ["link5", "link5", "link6"],
-//   },
-
-//   {
-//     icon: awardIcon,
-//     title: "Leaderboard",
-//     arrowIcon: arrowIcon,
-//     subLinksArr: ["link5", "link5", "link6"],
-//   },
-
-//   {
-//     icon: settingIcon,
-//     title: "Account & Billing",
-//     arrowIcon: arrowIcon,
-//     subLinksArr: ["link5", "link5", "link6"],
-//   },
-// ];
-
-const navItems = [
-  {
-    icon: assignmentIcon,
-    title: "Learning Hub",
-    arrowIcon: arrowIcon,
-    subLinksArr: [
-      {
-        title: "Assignment Help", 
-        href: "/assignment-help"
-      },
-         {
-        title: "Superpower", 
-        href: "/superpower"
-      },
-
-      {
-        title: "Interactive Lessons", 
-        href: "/interactive-lessons"
-      },
-
-
-    ],
-   
-
-  },
-
-  {
-    icon: libraryIcon,
-    title: "Study Materials",
-    arrowIcon: arrowIcon,
-    subLinksArr:[
-      {
-        title:  "Little Learners",
-        href: "/little-learners"
-      },
-
-      {
-        title:  "Worksheets",
-        href: "/worksheets"
-      },
-
-       {
-        title:  "Visual Learning",
-        href: "/visual-learning"
-      },
-
-      {
-        title:  "Language Worksheets",
-        href: "/language-worksheets"
-      },
-
-      {
-        title:  "Practice Exercises",
-        href: "/practice-exercises"
-      },
-
-        {
-        title:  "Study Materials",
-        href: "/study-materials"
-      },
-
-
-       {
-        title:  "Reading",
-        href: "/reading"
-      },
-
-
-    ],
-  },
-
-  {
-    icon: quizIcon,
-    title: "Gamification",
-    arrowIcon: arrowIcon,
-    subLinksArr: [
-      {
-        title: "Games",
-        href: "/games"
-      }
-    ],
-  },
-
-  {
-    icon: teachingIcon,
-    title: "Live Tutoring",
-    arrowIcon: arrowIcon,
-    subLinksArr: [
-      {
-        title: "link4",
-        href: "/link4"
-      },
-
-      {
-        title: "link5",
-        href: "/link5"
-      },
-      {
-        title: "link6",
-        href: "/link6"
-      },
-    ],
-  },
-
-  {
-    icon: studentIcon,
-    title: "Student Tools",
-    arrowIcon: arrowIcon,
-    subLinksArr: [
-      {
-        title: "link4",
-        href: "/link4"
-      },
-
-      {
-        title: "link5",
-        href: "/link5"
-      },
-      {
-        title: "link6",
-        href: "/link6"
-      },
-    ],
-  },
-
-  {
-    icon: awardIcon,
-    title: "Leaderboard",
-    arrowIcon: arrowIcon,
-    subLinksArr: [
-      {
-        title: "link4",
-        href: "/link4"
-      },
-
-      {
-        title: "link5",
-        href: "/link5"
-      },
-      {
-        title: "link6",
-        href: "/link6"
-      },
-    ],
-  },
-
-  {
-    icon: settingIcon,
-    title: "Account & Billing",
-    arrowIcon: arrowIcon,
-    subLinksArr: [
-      {
-        title: "link4",
-        href: "/link4"
-      },
-
-      {
-        title: "link5",
-        href: "/link5"
-      },
-      {
-        title: "link6",
-        href: "/link6"
-      },
-    ],
-  },
-];
+import defaultProfilePic from "./assets/user-circle.svg"
+import { navItems } from "./dashboard/navbar.js";
 
 const navContainer = document.getElementById("nav-container");
 function initializeSidebar() {
@@ -331,6 +120,11 @@ function initializeSidebar() {
 }
 
 initializeSidebar();
+
+const navCollection = Array.from(htmlCollection1);
+const navArrows = Array.from(htmlCollection2);
+const htmlCollection3 = document.getElementsByClassName("subLinks");
+const subLinks = Array.from(htmlCollection3);
 
 
 
@@ -370,31 +164,79 @@ paths.forEach(path => {
 })
 const dashboard = document.getElementById('dashboard')
 let prev = dashboard;
-// import { subjectList } from "../subjectList.js";
+import { data } from "./dashboard/assignment-help.js";
 // const subjectsContainer= document.getElementById("subjects-container")
+// const interactiveContainer = document.getElementById("interactive-container")
+// const littleContainer = document.getElementById("little-learners-container")
+// const worksheetsContainer = document.getElementById("worksheets-container")
+// const visualLearningContainer = document.getElementById("visual-learning-container")
+// const languageWorksheetContainer = document.getElementById("language-worksheets-container")
+const pagesCardsContainer = Array.from(document.getElementsByClassName("page-cards-container"))
 
-// function renderCards(cardList){
-// cardList.map((cur, ind)=>{
-//   return subjectsContainer.innerHTML += `<div class="card flex-1 min-w-[300px] rounded-3xl p-4 bg-[${cur.cardColor}] flex flex-col gap-3 items-center h-fit">
-//       <img src="${cur.img}" alt="light">
-// <span class="text-[${cur.title.textColor}]">${cur.title.text}</span>
-// <small>Due: ${cur.date}</small>
-// <div class="buttons flex gap-2 flex-wrap">
-//   <button class="flex gap-2 p-3 rounded-full bg-[#FF9F01] text-white items-center">
-//     <img src="${cur.btns[0].btnLogo}" alt="">
-//   AI Hint</button>
 
-//    <button class="flex gap-2 p-3 rounded-full bg-(--primaryColor) text-white items-center">
-//   <img src="${cur.btns[1].btnLogo}" alt="upload">
+const pagesContainers = [
+  {
+    id: "assignment-help",
+    cardsContainer: pagesCardsContainer[0],
+    data: data,
+    card: card,
+    firstRender: false
+  },
+  {
+    id: "interactive-lessons",
+    cardsContainer: pagesCardsContainer[1],
+    data: data2,
+    card: card2,
+    firstRender: false
+  },
 
-//   Upload</button>
-// </div>
-//           </div>`
-// })
-// }
+   {
+    id: "little-learners",
+    cardsContainer: pagesCardsContainer[2],
+    data: data3,
+    card: card3,
+    firstRender: false
+  },
 
+   {
+    id: "worksheets",
+    cardsContainer: pagesCardsContainer[3],
+    data: data4,
+    card: card4,
+    firstRender: false
+  },
+
+    {
+    id: "visual-learning",
+    cardsContainer: pagesCardsContainer[4],
+    data: data5,
+    card: card5,
+    firstRender: false
+  },
+
+   {
+    id: "language-worksheets",
+    cardsContainer: pagesCardsContainer[5],
+    data: data6,
+    card: card,
+    firstRender: false
+  },
+]
+
+function isThisPageHasCards(id){
+const current = pagesContainers.find((cur)=>(
+  cur.id == id
+))
+return current;
+}
 function showThisPage(id, title){
-// renderCards(subjectList)
+  const current = isThisPageHasCards(id)
+if(current && !current.firstRender){
+renderCards(current.cardsContainer, current.card, current.data)
+current.firstRender = true;
+
+}
+
    
   const page = document.getElementById(id)
   if(page && page.id !=prev.id){
@@ -412,17 +254,7 @@ function showThisPage(id, title){
 }
 
 
-const redChatBtn = document.getElementById("red-chat-btn");
-const yellowChatBtn = document.getElementById("yellow-chat-btn")
-const redChatboxCloseBtn = document.getElementById("redChatboxCloseBtn")
-const yellowChatboxCloseBtn = document.getElementById("yellowChatboxCloseBtn")
-const purpleChatboxCloseBtn = document.getElementById("purpleChatboxCloseBtn")
-const redChatBox = document.getElementById("red-chat-box")
-const yellowChatBox = document.getElementById("yellow-chat-box")
 
-const chatboxBtns = Array.from(document.getElementsByClassName("chatboxBtn"))
-const chatBoxes = Array.from(document.getElementsByClassName("chatbox"))
-const bgOverlay = document.getElementById("overlay")
 
 bgOverlay.addEventListener("click", ()=>{
   closeMenu()
@@ -482,17 +314,8 @@ function closeChatBox(boxValue){
 
 }
 
-const menuBar = document.getElementById("menu-bar");
 
 
-
-
-const htmlCollection1 = document.getElementsByClassName("nav-item");
-const htmlCollection2 = document.getElementsByClassName("nav-arrow");
-const navCollection = Array.from(htmlCollection1);
-const navArrows = Array.from(htmlCollection2);
-const htmlCollection3 = document.getElementsByClassName("subLinks");
-const subLinks = Array.from(htmlCollection3);
 
 let navArrowOpen = [false, false, false, false, false, false, false];
 
@@ -585,45 +408,3 @@ navCollection.forEach((cur, ind)=>{
 
 
 
-
-
-
-
-
-// for (let i = 0; i < navCollection.length; i++) {
-//   navCollection[i].firstElementChild.addEventListener("click", () => {
-//       // let num = subLinks[i].childElementCount === 1 ? 45 : 36;
-//     if(i<4){
-//       scrollTop()
-//     }
-//     else{
-//       scrollBottom()
-//     }
-    
- 
-//     // const height = String(
-//     //   subLinks[i].childElementCount * num +
-//     //     navCollection[i].firstElementChild.offsetHeight,
-//     // );
-//     if (flipArrow(i)) {
-//       navCollection[i].classList.add(`min-h-fit`);
-//       navCollection[i].classList.remove("min-h-[43px]", "overflow-y-hidden");
-      
-    
-//     } else {
-//       navCollection[i].classList.remove(`min-h-fit`);
-//       navCollection[i].classList.add("min-h-[43px]", "overflow-y-hidden");
-//     }
-
-//     if(firstClick && prevNavItemIndex !== i && navArrowOpen[prevNavItemIndex]){
-//   flipArrow(prevNavItemIndex)
-//       // navCollection[prevNavItemIndex].classList.remove(`min-h-[${prevNavItemHeight}px]`);
-//       navCollection[prevNavItemIndex].classList.remove(`min-h-fit`);
-//       navCollection[prevNavItemIndex].classList.add("min-h-[43px]", "overflow-y-hidden");
-// }
-//  prevNavItemIndex = i;
-// //  prevNavItemHeight = height;
-// firstClick = true;
-      
-//   });
-// }

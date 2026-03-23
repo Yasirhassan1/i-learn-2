@@ -18,7 +18,7 @@ import card4 from "../components/card4.js";
 import card5 from "../components/card5.js"
 
 
-import renderCards from "../components/CardList.js";
+import renderCards from "../components/cardList.js"
 import { data as data2 } from "./dashboard/interactive-lessons.js";
 import {data as data3}  from "./dashboard/little-learners.js"
 import {data as data4} from "./dashboard/worksheet.js"

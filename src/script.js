@@ -24,6 +24,7 @@ import {data as data3}  from "./dashboard/little-learners.js"
 import {data as data4} from "./dashboard/worksheet.js"
 import {data as data5} from "./dashboard/visual-learning.js"
 import {data as data6} from "./dashboard/language-worksheets.js"
+import {data as data7} from "./dashboard/reading.js"
 
 
 
@@ -219,6 +220,23 @@ const pagesContainers = [
     cardsContainer: pagesCardsContainer[5],
     data: data6,
     card: card,
+    firstRender: false
+  },
+
+
+    {
+    id: "study-materials",
+   cardsContainer: pagesCardsContainer[6],
+    data: data3,
+    card: card3,
+    firstRender: false
+  },
+
+     {
+    id: "reading",
+   cardsContainer: pagesCardsContainer[7],
+    data: data7,
+    card: card5,
     firstRender: false
   },
 ]

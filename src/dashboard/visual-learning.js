@@ -11,13 +11,14 @@ export const data = [
     subject: {
       title: {
         text: "History",
-        color: "#FF9F01",
+        color: "#ff9d00",
       },
-      duration: "04:10 ",
+      duration: "04:10",
       completion: {
         color: "#FF9F01",
         percentage: 78,
       },
+
     },
   },
   {
@@ -29,7 +30,7 @@ export const data = [
         text: "Learn",
         color: "#3685C7",
       },
-      duration: "04:10 ",
+      duration: "04:10",
       completion: {
         color: "#3685C7",
         percentage: 37,

@@ -1,7 +1,7 @@
 export default function card4(dataObj){
-    return `<div id="${dataObj.id}" class="box bg-[${dataObj.card.color}] transition-all ease duration-200 border-2 border-transparent hover:border-[${dataObj.title.color}] hover:scale-105 hover:shadow-lg w-[280px] rounded-3xl  relative h-[280px] mt-10 flex flex-col justify-end p-4">
+    return `<div id="${dataObj.id}" class="box bg-[${dataObj.card.color}] transition-all group ease duration-200 border-2 border-transparent hover:border-[${dataObj.title.color}] hover:scale-105 hover:shadow-lg w-[280px] rounded-3xl  relative h-[280px] mt-10 flex flex-col justify-end p-4">
   <div class="innerbox w-[200px] h-[200px] shadow-lg rounded-3xl bg-[${dataObj.card.innerCard.color}] absolute -top-6 left-1/2 -translate-x-1/2 rotate-3"></div>
-  <img class="pic absolute object-cover z-40 object-center  -top-4 left-32 -translate-x-1/2 w-[190px] h-[190px] bg-white rounded-3xl" src="${dataObj.mainImg}" alt="pic">
+  <img class="pic absolute object-cover z-40 object-center  -top-4 left-32 -translate-x-1/2 w-[190px] h-[190px] bg-white transition-all ease duration-200 rounded-3xl group-hover:rotate-12" src="${dataObj.mainImg}" alt="pic">
 
   <div class="title flex flex-col gap-2 self-center text-center">
     <strong class="text-[${dataObj.title.color}] text-xl">${dataObj.title.text}</strong>

@@ -1,21 +1,22 @@
-import {onAuthStateChanged } from "firebase/auth";
-import { auth } from "./auth.js";
+// import {onAuthStateChanged } from "firebase/auth";
+// import { auth } from "./auth.js";
 
-onAuthStateChanged(auth, (user)=>{
-  if(!user){
-    window.location = "/sign-in.html"
-  }
-  else{
-    document.body.classList.replace("hidden", "block");
-  }
-})
-//  document.body.classList.replace("hidden", "block");
+// onAuthStateChanged(auth, (user)=>{
+//   if(!user){
+//     window.location = "/sign-in.html"
+//   }
+//   else{
+//     document.body.classList.replace("hidden", "block");
+//   }
+// })
+ document.body.classList.replace("hidden", "block");
 
 import card from "../components/card.js";
 import card2 from "../components/card2.js";
 import card3 from "../components/card3.js"
 import card4 from "../components/card4.js";
 import card5 from "../components/card5.js"
+import card6  from "../components/card6.js";
 
 
 import renderCards from "../components/cardList.js"
@@ -25,6 +26,7 @@ import {data as data4} from "./dashboard/worksheet.js"
 import {data as data5} from "./dashboard/visual-learning.js"
 import {data as data6} from "./dashboard/language-worksheets.js"
 import {data as data7} from "./dashboard/reading.js"
+import {data as data8} from "./dashboard/practice-exercise.js"
 
 
 
@@ -223,18 +225,30 @@ const pagesContainers = [
     firstRender: false
   },
 
+     {
+    id: "practice-exercises",
+   cardsContainer: pagesCardsContainer[6],
+    data: data8,
+    card: card6,
+    firstRender: false
+  },
+
+
+
 
     {
     id: "study-materials",
-   cardsContainer: pagesCardsContainer[6],
+   cardsContainer: pagesCardsContainer[7],
     data: data3,
     card: card3,
     firstRender: false
   },
 
+
+
      {
     id: "reading",
-   cardsContainer: pagesCardsContainer[7],
+   cardsContainer: pagesCardsContainer[8],
     data: data7,
     card: card5,
     firstRender: false

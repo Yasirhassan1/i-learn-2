@@ -418,7 +418,7 @@ navCollection.forEach((cur, ind)=>{
    if (flipArrow(ind)) {
       // cur.classList.add(`min-h-fit`);
       cur.classList.add(`max-h-[370px]`);
-      cur.classList.remove("overflow-hidden", "max-h-[43px]");
+      cur.classList.remove("max-h-[43px]");
       
     
     } else {

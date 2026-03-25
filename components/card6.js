@@ -9,5 +9,4 @@ export default function card6(dataObj){
   <button class="bg-[${dataObj.btn.color}] rounded-full p-3 text-white hover:brightness-90">${dataObj.btn.text}</button>
   </div>
 </div>
-    `
-}
+    `}
